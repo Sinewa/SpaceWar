@@ -4,6 +4,6 @@
 
 namespace SWGame {
 	void Component::Update(float dt) {
-		std::cout << "Updating Component" << std::endl;
+		//std::cout << "Updating Component" << std::endl;
 	}
 }

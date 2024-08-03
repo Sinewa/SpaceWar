@@ -1,25 +1,26 @@
 #include "Game.h"
 
-#include <iostream>
-
-#include "src/Core/Entity.h"
+#include "src/Core/World.h"
 
 namespace SWGame {
-	void Game::UpdateEntities(float dt) {
-		std::cout << "Updating Game" << std::endl;
-
-		for (CoreEntity* ent : m_aEntities) {
-			if (ent->IsFlag(EntityFlags::EF_ACTIVE))
-				ent->Update(dt);
-		}
-		
+	Game::Game() {
+		m_ActiveWorld = new World();
 	}
 	//-----------------------------------------------------------
-	void Game::CreateEntity() {
-		CoreEntity* newEnt = new CoreEntity();
-		newEnt->SetFlags(EntityFlags::EF_ACTIVE);
-		m_aEntities.push_back(newEnt);
+	Game::~Game() {
+		delete m_ActiveWorld;
 	}
-
-
+	//-----------------------------------------------------------
+	void Game::Update(float dt) {
+		m_ActiveWorld->Update(dt);
+	}
+	//-----------------------------------------------------------
+	World* Game::GetWorld() const {
+		return m_ActiveWorld;
+	}
+	//-----------------------------------------------------------
+	Game* Game::GetGame() {
+		static Game* m_Game = new Game();
+		return m_Game;
+	}
 }

@@ -8,7 +8,7 @@ constexpr auto BITF(TBit x) { return 1 << x; }
 
 template<typename TEnum>
 class Flags {
-	uint32_t m_Flags;
+	uint32_t m_Flags = 0;
 public:
 	bool IsSet(TEnum flags) const {
 		return m_Flags & flags; 

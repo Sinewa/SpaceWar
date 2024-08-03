@@ -4,13 +4,21 @@
 
 namespace SWGame {
 
-	class CoreEntity;
+	class World;
 
 	class Game {
 	protected:
-		std::vector<CoreEntity*> m_aEntities;
+		World* m_ActiveWorld;
+		
+		Game();
 	public:
-		void CreateEntity();
-		void UpdateEntities(float dt);
+		virtual ~Game();
+
+		virtual void Update(float dt);
+
+		World* GetWorld() const;
+
+
+		static Game* GetGame();
 	};
 }

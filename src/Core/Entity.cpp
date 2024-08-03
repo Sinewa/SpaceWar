@@ -7,7 +7,7 @@
 
 namespace SWGame {
 	void CoreEntity::Update(float dt) {
-		std::cout << "Updating Entity" << std::endl;
+		//std::cout << "Updating Entity: " << dt << std::endl;
 
 		for (Component* comp: m_aComponents) {
 			comp->Update(dt);

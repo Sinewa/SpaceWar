@@ -1,6 +1,14 @@
 #include <SFML/Graphics.hpp>
 
 #include "src/Game/Game.h"
+#include "src/Core/World.h"
+#include "src/Core/Entity.h"
+#include "src/Core/Component.h"
+
+void Cleanup() {
+  delete SWGame::Game::GetGame();
+}
+
 
 int main() {
   sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!",sf::Style::None);
@@ -8,8 +16,14 @@ int main() {
   shape.setFillColor(sf::Color::Green);
 
   sf::Clock clock;
-  SWGame::Game game;
-  game.CreateEntity();
+  SWGame::Game* game = SWGame::Game::GetGame();
+  auto* ent = game->GetWorld()->CreateEntity(); 
+  ent->AddComponent(new SWGame::Component());
+  
+
+  game->GetWorld()->CreateEntity();
+  game->GetWorld()->CreateEntity();
+
   float dt;
   while (window.isOpen()) {
     sf::Event event;
@@ -20,12 +34,14 @@ int main() {
     
     dt = clock.restart().asSeconds();
 
-    game.UpdateEntities(dt);
+    game->Update(dt);
 
     window.clear();
     window.draw(shape);
     window.display();
   }
+
+  Cleanup();
 
   return 0;
 }
