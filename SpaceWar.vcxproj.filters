@@ -30,7 +30,7 @@
     <ClCompile Include="src\Core\World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Visual\MeshComponent.cpp">
+    <ClCompile Include="src\Visual\SpriteComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +50,7 @@
     <ClInclude Include="src\Core\World.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Visual\MeshComponent.h">
+    <ClInclude Include="src\Visual\SpriteComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

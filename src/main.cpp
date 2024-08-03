@@ -4,7 +4,7 @@
 #include "src/Core/World.h"
 #include "src/Core/Entity.h"
 #include "src/Core/Component.h"
-#include "src/Visual/MeshComponent.h"
+#include "src/Visual/SpriteComponent.h"
 
 void Cleanup() {
   delete SWGame::Game::GetGame();
@@ -20,9 +20,9 @@ int main() {
   SWGame::Game* game = SWGame::Game::GetGame();
   auto* ent = game->GetWorld()->CreateEntity(); 
   ent->AddComponent(new SWGame::Component());
-  ent->AddComponent(new SWGame::MeshComponent());
+  ent->AddComponent(new SWGame::SpriteComponent());
   
-  ent->FindComponent<SWGame::MeshComponent>()->Test();
+  ent->FindComponent<SWGame::SpriteComponent>()->Test();
 
   game->GetWorld()->CreateEntity();
   game->GetWorld()->CreateEntity();

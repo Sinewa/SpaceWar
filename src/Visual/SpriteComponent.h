@@ -6,7 +6,7 @@
 
 
 namespace SWGame {
-	class MeshComponent : public Component {
+	class SpriteComponent : public Component {
 	public:
 		void Test() const {
 			std::cout << "Test message" << std::endl;
