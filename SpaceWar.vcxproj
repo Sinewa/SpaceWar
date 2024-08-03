@@ -138,6 +138,7 @@
     <ClCompile Include="src\Core\World.cpp" />
     <ClCompile Include="src\Game\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Visual\MeshComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Component.h" />
@@ -145,6 +146,7 @@
     <ClInclude Include="src\Core\Utils.h" />
     <ClInclude Include="src\Core\World.h" />
     <ClInclude Include="src\Game\Game.h" />
+    <ClInclude Include="src\Visual\MeshComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

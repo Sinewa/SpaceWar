@@ -21,4 +21,8 @@ namespace SWGame {
 	void CoreEntity::SetFlags(EntityFlags flags) {
 		m_entityFlags.Set(flags);
 	}
+	//-----------------------------------------------------------
+	void CoreEntity::AddComponent(Component* comp) {
+		m_aComponents.push_back(comp);
+	}
 }
