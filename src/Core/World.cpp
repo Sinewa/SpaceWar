@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "src/Core/Entity.h"
+#include "src/Entities/Base/Entity.h"
 
 namespace SWGame {
 	void World::Update(float dt) {

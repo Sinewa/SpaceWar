@@ -133,20 +133,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Core\Component.cpp" />
-    <ClCompile Include="src\Core\Entity.cpp" />
+    <ClCompile Include="src\Components\Base\Component.cpp" />
+    <ClCompile Include="src\Components\Visual\SpriteComponent.cpp" />
+    <ClCompile Include="src\Core\Game.cpp" />
     <ClCompile Include="src\Core\World.cpp" />
-    <ClCompile Include="src\Game\Game.cpp" />
+    <ClCompile Include="src\Entities\Base\Entity.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Visual\SpriteComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Core\Component.h" />
-    <ClInclude Include="src\Core\Entity.h" />
+    <ClInclude Include="src\Components\Base\Component.h" />
+    <ClInclude Include="src\Components\Visual\SpriteComponent.h" />
+    <ClInclude Include="src\Core\Game.h" />
     <ClInclude Include="src\Core\Utils.h" />
     <ClInclude Include="src\Core\World.h" />
-    <ClInclude Include="src\Game\Game.h" />
-    <ClInclude Include="src\Visual\SpriteComponent.h" />
+    <ClInclude Include="src\Entities\Base\Entity.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

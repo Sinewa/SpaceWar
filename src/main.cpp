@@ -1,10 +1,10 @@
 #include <SFML/Graphics.hpp>
 
-#include "src/Game/Game.h"
+#include "src/Core/Game.h"
 #include "src/Core/World.h"
-#include "src/Core/Entity.h"
-#include "src/Core/Component.h"
-#include "src/Visual/SpriteComponent.h"
+#include "src/Entities/Base/Entity.h"
+#include "src/Components/Base/Component.h"
+#include "src/Components/Visual/SpriteComponent.h"
 
 void Cleanup() {
   delete SWGame::Game::GetGame();

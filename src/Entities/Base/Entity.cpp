@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "src/Core/Component.h"
+#include "src/Components/Base/Component.h"
 
 
 namespace SWGame {
