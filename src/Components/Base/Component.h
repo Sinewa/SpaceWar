@@ -1,10 +1,10 @@
 #pragma once 
 
 namespace SWGame {
-	class CoreEntity;
+	class BaseEntity;
 
 	class Component {
 	public:
-		virtual void Update(CoreEntity* owner, float dt);
+		virtual void Update(BaseEntity* owner, float dt);
 	};
 }

@@ -3,18 +3,18 @@
 #include <vector>
 
 namespace SWGame {
-	class CoreEntity;
+	class BaseEntity;
 	class SystemsManager;
 
 	class World {
 	protected:
-		std::vector<CoreEntity*> m_aEntities;
+		std::vector<BaseEntity*> m_aEntities;
 		SystemsManager* m_SystemManager;
 	public:
 		World();
 		~World();
 
-		CoreEntity* CreateEntity();
+		BaseEntity* CreateEntity();
 		virtual void Update(float dt);
 
 		SystemsManager* GetSystems();

@@ -137,7 +137,7 @@
     <ClCompile Include="src\Components\Visual\SpriteComponent.cpp" />
     <ClCompile Include="src\Core\Game.cpp" />
     <ClCompile Include="src\Core\World.cpp" />
-    <ClCompile Include="src\Entities\Base\Entity.cpp" />
+    <ClCompile Include="src\Entities\Base\BaseEntity.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Systems\Base\BaseSystem.cpp" />
     <ClCompile Include="src\Systems\Base\SystemsManager.cpp" />
@@ -148,7 +148,7 @@
     <ClInclude Include="src\Core\Game.h" />
     <ClInclude Include="src\Core\Utils.h" />
     <ClInclude Include="src\Core\World.h" />
-    <ClInclude Include="src\Entities\Base\Entity.h" />
+    <ClInclude Include="src\Entities\Base\BaseEntity.h" />
     <ClInclude Include="src\Systems\Base\BaseSystem.h" />
     <ClInclude Include="src\Systems\Base\SystemsManager.h" />
   </ItemGroup>

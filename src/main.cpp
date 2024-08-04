@@ -2,7 +2,7 @@
 
 #include "src/Core/Game.h"
 #include "src/Core/World.h"
-#include "src/Entities/Base/Entity.h"
+#include "src/Entities/Base/BaseEntity.h"
 #include "src/Components/Base/Component.h"
 #include "src/Components/Visual/SpriteComponent.h"
 

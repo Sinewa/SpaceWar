@@ -1,4 +1,4 @@
-#include "Entity.h"
+#include "BaseEntity.h"
 
 #include <iostream>
 
@@ -6,7 +6,7 @@
 
 
 namespace SWGame {
-	void CoreEntity::Update(float dt) {
+	void BaseEntity::Update(float dt) {
 		//std::cout << "Updating Entity: " << dt << std::endl;
 
 		for (Component* comp: m_aComponents) {
@@ -14,15 +14,15 @@ namespace SWGame {
 		}
 	}
 	//-----------------------------------------------------------
-	bool CoreEntity::IsFlag(EntityFlags flags) const {
+	bool BaseEntity::IsFlag(EntityFlags flags) const {
 		return m_entityFlags.IsSet(flags);
 	}
 	//-----------------------------------------------------------
-	void CoreEntity::SetFlags(EntityFlags flags) {
+	void BaseEntity::SetFlags(EntityFlags flags) {
 		m_entityFlags.Set(flags);
 	}
 	//-----------------------------------------------------------
-	void CoreEntity::AddComponent(Component* comp) {
+	void BaseEntity::AddComponent(Component* comp) {
 		m_aComponents.push_back(comp);
 	}
 }

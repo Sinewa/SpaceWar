@@ -13,7 +13,7 @@ namespace SWGame {
 		EF_VISIBLE = BITF(1)
 	};
 
-	class CoreEntity {
+	class BaseEntity {
 	private:
 		std::vector<Component*> m_aComponents;
 		Flags<EntityFlags> m_entityFlags;
