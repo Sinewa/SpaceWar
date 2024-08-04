@@ -3,10 +3,19 @@
 #include <iostream>
 
 #include "src/Entities/Base/Entity.h"
-
+#include "src/Systems/Base/SystemsManager.h"
 namespace SWGame {
+	World::World() {
+		m_SystemManager = new SystemsManager();
+	}
+	//-----------------------------------------------------------
+	World::~World() {
+		delete m_SystemManager;
+	}
+	//-----------------------------------------------------------
 	void World::Update(float dt) {
 		UpdateEntities(dt);
+		m_SystemManager->Update(dt);
 	}
 	//-----------------------------------------------------------
 	void World::UpdateEntities(float dt) {
@@ -25,5 +34,8 @@ namespace SWGame {
 		m_aEntities.push_back(newEnt);
 		return newEnt;
 	}
-
+	//-----------------------------------------------------------
+	SystemsManager* World::GetSystems() {
+		return m_SystemManager;
+	}
 }

@@ -33,6 +33,12 @@
     <ClCompile Include="src\Core\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Systems\Base\BaseSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Systems\Base\SystemsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Utils.h">
@@ -53,10 +59,10 @@
     <ClInclude Include="src\Entities\Base\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Systems\BaseSystem.h">
+    <ClInclude Include="src\Systems\Base\BaseSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Systems\SystemsManager.h">
+    <ClInclude Include="src\Systems\Base\SystemsManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

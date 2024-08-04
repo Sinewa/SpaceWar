@@ -9,7 +9,7 @@ namespace SWGame {
 	protected:
 		std::vector<BaseSystem*> m_aSystems;
 	public:
-
+		void Update(float dt);
 		/**
 		* Returns first found Component of a given type, null otherwise
 		*/

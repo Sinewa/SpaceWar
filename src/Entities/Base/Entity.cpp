@@ -10,7 +10,7 @@ namespace SWGame {
 		//std::cout << "Updating Entity: " << dt << std::endl;
 
 		for (Component* comp: m_aComponents) {
-			comp->Update(dt);
+			comp->Update(this, dt);
 		}
 	}
 	//-----------------------------------------------------------

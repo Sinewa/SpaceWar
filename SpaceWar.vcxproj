@@ -139,6 +139,8 @@
     <ClCompile Include="src\Core\World.cpp" />
     <ClCompile Include="src\Entities\Base\Entity.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Systems\Base\BaseSystem.cpp" />
+    <ClCompile Include="src\Systems\Base\SystemsManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\Base\Component.h" />
@@ -147,8 +149,8 @@
     <ClInclude Include="src\Core\Utils.h" />
     <ClInclude Include="src\Core\World.h" />
     <ClInclude Include="src\Entities\Base\Entity.h" />
-    <ClInclude Include="src\Systems\BaseSystem.h" />
-    <ClInclude Include="src\Systems\SystemsManager.h" />
+    <ClInclude Include="src\Systems\Base\BaseSystem.h" />
+    <ClInclude Include="src\Systems\Base\SystemsManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
