@@ -14,5 +14,7 @@ namespace SWGame {
 		void Test() const {
 			std::cout << "Test message" << std::endl;
 		}
+
+		
 	};
 }

@@ -2,11 +2,15 @@
 
 #include <iostream>
 
+#include <SFML/Graphics/RenderTarget.hpp>
+
 #include "src/Entities/Base/BaseEntity.h"
 #include "src/Systems/Base/SystemsManager.h"
+#include "src/Systems/Visual/RenderSystem.h"
 namespace SWGame {
 	World::World() {
 		m_SystemManager = new SystemsManager();
+		m_Render = new RenderSystem();
 	}
 	//-----------------------------------------------------------
 	World::~World() {
@@ -27,6 +31,10 @@ namespace SWGame {
 		}
 	}
 	//-----------------------------------------------------------
+	void World::Render(sf::RenderTarget* target) {
+		m_Render->Render(target);
+	}
+	//-----------------------------------------------------------
 	BaseEntity* World::CreateEntity() {
 		BaseEntity* newEnt = new BaseEntity();
 		newEnt->SetFlags(EntityFlags::EF_ACTIVE);
@@ -36,5 +44,9 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	SystemsManager* World::GetSystems() {
 		return m_SystemManager;
+	}
+	//-----------------------------------------------------------
+	RenderSystem* World::GetRenderSystem() {
+		return m_Render;
 	}
 }

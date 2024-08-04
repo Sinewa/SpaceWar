@@ -2,6 +2,10 @@
 
 #include <vector>
 
+namespace sf {
+	class RenderWindow;
+}
+
 namespace SWGame {
 
 	class World;
@@ -9,12 +13,13 @@ namespace SWGame {
 	class Game {
 	protected:
 		World* m_ActiveWorld;
-		
+		sf::RenderWindow* m_window;
+	protected:
 		Game();
-	public:
 		virtual ~Game();
+	public:
 
-		virtual void Update(float dt);
+		virtual void Run();
 
 		World* GetWorld() const;
 
