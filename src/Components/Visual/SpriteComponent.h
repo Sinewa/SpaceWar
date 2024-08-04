@@ -5,16 +5,17 @@
 
 namespace sf {
 	class Texture;
+	class Sprite;
 }
 
 namespace SWGame {
 	class SpriteComponent : public Component {
-		sf::Texture* m_texture;
+		sf::Sprite* m_sprite;
 	public:
-		void Test() const {
-			std::cout << "Test message" << std::endl;
-		}
+		virtual void Init(BaseEntity* owner) override;
+		SpriteComponent();
 
-		
+		virtual void Update(BaseEntity* owner, float dt) override;
+		virtual void GatherDraw(std::vector<sf::Drawable*>& retVal) override;
 	};
 }

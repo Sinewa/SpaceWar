@@ -39,7 +39,7 @@
     <ClCompile Include="src\Entities\Base\BaseEntity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Systems\Visual\RenderSystem.cpp">
+    <ClCompile Include="src\Systems\Visual\RenderManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,7 +68,10 @@
     <ClInclude Include="src\Entities\Base\BaseEntity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Systems\Visual\RenderSystem.h">
+    <ClInclude Include="src\Systems\Visual\RenderManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Systems\Visual\TextureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

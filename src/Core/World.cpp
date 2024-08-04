@@ -6,11 +6,10 @@
 
 #include "src/Entities/Base/BaseEntity.h"
 #include "src/Systems/Base/SystemsManager.h"
-#include "src/Systems/Visual/RenderSystem.h"
+#include "src/Systems/Visual/RenderManager.h"
 namespace SWGame {
 	World::World() {
 		m_SystemManager = new SystemsManager();
-		m_Render = new RenderSystem();
 	}
 	//-----------------------------------------------------------
 	World::~World() {
@@ -31,8 +30,13 @@ namespace SWGame {
 		}
 	}
 	//-----------------------------------------------------------
-	void World::Render(sf::RenderTarget* target) {
-		m_Render->Render(target);
+	void World::GatherDraw(std::vector<sf::Drawable*>& drawables) {
+		for (BaseEntity* ent : m_aEntities) {
+			if (ent->IsFlag(EntityFlags::EF_ACTIVE) && ent->IsFlag(EntityFlags::EF_VISIBLE))
+			{
+ 				ent->GatherDraw(drawables);
+			}
+		}
 	}
 	//-----------------------------------------------------------
 	BaseEntity* World::CreateEntity() {
@@ -46,7 +50,4 @@ namespace SWGame {
 		return m_SystemManager;
 	}
 	//-----------------------------------------------------------
-	RenderSystem* World::GetRenderSystem() {
-		return m_Render;
-	}
 }

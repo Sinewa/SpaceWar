@@ -2,8 +2,6 @@
 
 #include <vector>
 
-#include "src/Systems/Base/BaseSystem.h"
-
 namespace sf {
 	class Drawable;
 	class RenderTarget;
@@ -11,9 +9,10 @@ namespace sf {
 
 namespace SWGame {
 	
-	class RenderSystem : public BaseSystem {
+	class RenderManager {
 		std::vector<sf::Drawable*> m_drawables;
 	public:
+		void AppendDrawables(std::vector<sf::Drawable*>& drawables);
 		void Render(sf::RenderTarget* target);
 	};
 }

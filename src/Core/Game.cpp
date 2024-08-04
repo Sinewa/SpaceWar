@@ -2,12 +2,14 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "src/Systems/Visual/RenderManager.h"
 #include "src/Core/World.h"
 
 namespace SWGame {
 	Game::Game() {
 		m_window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!", sf::Style::Default);
 		m_ActiveWorld = new World();
+		m_renderer = new RenderManager();
 	}
 	//-----------------------------------------------------------
 	Game::~Game() {
@@ -17,6 +19,8 @@ namespace SWGame {
 	void Game::Run() {
 		float dt;
 		sf::Clock clock;
+
+		std::vector<sf::Drawable*> drawables;
 
 		while (m_window->isOpen()) {
 			sf::Event event;
@@ -29,8 +33,11 @@ namespace SWGame {
 
 			m_ActiveWorld->Update(dt);
 
+			m_ActiveWorld->GatherDraw(drawables);
+			m_renderer->AppendDrawables(drawables);
+
 			m_window->clear();
-			m_ActiveWorld->Render(m_window);
+			m_renderer->Render(m_window);
 			m_window->display();
 		}
 	}

@@ -16,9 +16,8 @@ int main() {
   auto* ent = game->GetWorld()->CreateEntity(); 
   ent->AddComponent(new SWGame::Component());
   ent->AddComponent(new SWGame::SpriteComponent());
+  ent->Init();
   
-  ent->FindComponent<SWGame::SpriteComponent>()->Test();
-
   game->GetWorld()->CreateEntity();
   game->GetWorld()->CreateEntity();
     

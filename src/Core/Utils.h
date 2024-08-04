@@ -10,8 +10,8 @@ template<typename TEnum>
 class Flags {
 	uint32_t m_Flags = 0;
 public:
-	bool IsSet(TEnum flags) const {
-		return m_Flags & flags; 
+	bool IsSet(TEnum flag) const {
+		return m_Flags & flag; 
 	}
 	//-----------------------------------------------------------
 	void Set(TEnum flags) 

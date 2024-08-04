@@ -6,11 +6,21 @@
 
 
 namespace SWGame {
+	void BaseEntity::Init() {
+		for (Component* comp : m_aComponents) {
+			comp->Init(this);
+		}
+	}
+	//-----------------------------------------------------------
 	void BaseEntity::Update(float dt) {
-		//std::cout << "Updating Entity: " << dt << std::endl;
-
 		for (Component* comp: m_aComponents) {
 			comp->Update(this, dt);
+		}
+	}
+	//-----------------------------------------------------------
+	void BaseEntity::GatherDraw(std::vector<sf::Drawable*>& retVal) {
+		for (Component* comp : m_aComponents) {
+			comp->GatherDraw(retVal);
 		}
 	}
 	//-----------------------------------------------------------
