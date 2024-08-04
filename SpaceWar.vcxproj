@@ -147,6 +147,8 @@
     <ClInclude Include="src\Core\Utils.h" />
     <ClInclude Include="src\Core\World.h" />
     <ClInclude Include="src\Entities\Base\Entity.h" />
+    <ClInclude Include="src\Systems\BaseSystem.h" />
+    <ClInclude Include="src\Systems\SystemsManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

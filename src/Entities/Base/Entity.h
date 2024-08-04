@@ -37,6 +37,7 @@ namespace SWGame {
 				if (TComp* tcomp = dynamic_cast<TComp*>(comp))
 					return tcomp;
 			}
+			return nullptr;
 		}
 	};
 }
