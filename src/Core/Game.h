@@ -29,7 +29,7 @@ namespace SWGame {
 		virtual void Run();
 
 		World* GetWorld() const;
-
+		InputManager* GetInputManager() const;
 
 		static Game* GetGame();
 	};

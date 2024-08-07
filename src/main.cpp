@@ -3,7 +3,8 @@
 #include "src/Core/Game.h"
 #include "src/Core/World.h"
 #include "src/Entities/Base/BaseEntity.h"
-#include "src/Components/Base/Component.h"
+
+#include "src/Components/Movement/PlayerMovementControllerComponent.h"
 #include "src/Components/Visual/SpriteComponent.h"
 
 void Cleanup() {
@@ -14,7 +15,7 @@ void Cleanup() {
 int main() {
   SWGame::Game* game = SWGame::Game::GetGame();
   auto* ent = game->GetWorld()->CreateEntity(); 
-  ent->AddComponent(new SWGame::Component());
+  ent->AddComponent(new SWGame::PlayerMovementControllerComponent());
   ent->AddComponent(new SWGame::SpriteComponent());
   ent->Init();
   

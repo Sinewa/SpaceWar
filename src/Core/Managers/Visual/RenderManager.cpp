@@ -15,5 +15,6 @@ namespace SWGame {
 			target->draw(*drawable);
 		}
 		
+		m_drawables.clear();
 	}
 }

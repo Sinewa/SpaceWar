@@ -1,5 +1,7 @@
 #include "Game.h"
 
+#include <iostream>
+
 #include <SFML/Graphics.hpp>
 
 #include "src/Core/Managers/InputManager.h"
@@ -36,11 +38,13 @@ namespace SWGame {
 			}
 
 			dt = clock.restart().asSeconds();
+			std::cout << dt << std::endl;
 
 			m_inputManager->HandleInputs();
 
 			m_ActiveWorld->Update(dt);
 
+			drawables.clear();
 			m_ActiveWorld->GatherDraw(drawables);
 			m_renderer->AppendDrawables(drawables);
 
@@ -54,8 +58,13 @@ namespace SWGame {
 		return m_ActiveWorld;
 	}
 	//-----------------------------------------------------------
+	InputManager* Game::GetInputManager() const {
+		return m_inputManager;
+	}
+	//-----------------------------------------------------------
 	Game* Game::GetGame() {
 		static Game m_Game;
 		return &m_Game;
 	}
+	//-----------------------------------------------------------
 }

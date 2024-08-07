@@ -35,6 +35,11 @@ namespace SWGame {
 		virtual void Update(float dt);
 		virtual void GatherDraw(std::vector<sf::Drawable*>& retVal);
 
+		void SetTranslation(const PosF& translation);
+		const PosF& GetTranslation() const;
+		void SetTransformation() {};
+
+
 		/**
 		* Method for attaching Components to entity.
 		* Entity takes full responsibility for destroying anything attached to it.

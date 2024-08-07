@@ -134,6 +134,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\Base\Component.cpp" />
+    <ClCompile Include="src\Components\Movement\BaseControllerComponent.cpp" />
+    <ClCompile Include="src\Components\Movement\PlayerMovementControllerComponent.cpp" />
     <ClCompile Include="src\Components\Visual\SpriteComponent.cpp" />
     <ClCompile Include="src\Core\Game.cpp" />
     <ClCompile Include="src\Core\Managers\InputManager.cpp" />
@@ -146,6 +148,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\Base\Component.h" />
+    <ClInclude Include="src\Components\Movement\BaseControllerComponent.h" />
+    <ClInclude Include="src\Components\Movement\PlayerMovementControllerComponent.h" />
     <ClInclude Include="src\Components\Visual\SpriteComponent.h" />
     <ClInclude Include="src\Core\Game.h" />
     <ClInclude Include="src\Core\Managers\InputManager.h" />

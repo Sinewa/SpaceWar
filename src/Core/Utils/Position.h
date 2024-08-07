@@ -9,5 +9,5 @@ namespace SWGame {
 	};
 
 	typedef Position<float> PosF;
-	typedef Position<int> PosI
+	typedef Position<int> PosI;
 }

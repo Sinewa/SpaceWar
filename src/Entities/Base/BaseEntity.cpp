@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "src/Components/Base/Component.h"
+#include "src/Core/Utils/Position.h"
 
 
 namespace SWGame {
@@ -35,4 +36,13 @@ namespace SWGame {
 	void BaseEntity::AddComponent(Component* comp) {
 		m_aComponents.push_back(comp);
 	}
+	//----------------------------------------------------------
+	void BaseEntity::SetTranslation(const PosF& pos) {
+		m_position = pos;
+	}
+	//----------------------------------------------------------
+	const PosF& BaseEntity::GetTranslation() const {
+		return m_position;
+	}
+	//----------------------------------------------------------
 }

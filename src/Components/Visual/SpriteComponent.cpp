@@ -20,7 +20,8 @@ namespace SWGame {
 	}
 	//-----------------------------------------------------------
 	void SpriteComponent::Update(BaseEntity* owner, float dt) {
-		m_sprite->setPosition(10, 10);
+		const auto & pos= owner->GetTranslation();
+		m_sprite->setPosition(pos.x, pos.y);
 	}
 	//-----------------------------------------------------------
 	void SpriteComponent::GatherDraw(std::vector<sf::Drawable*>& retVal) {
