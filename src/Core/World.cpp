@@ -5,8 +5,8 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 
 #include "src/Entities/Base/BaseEntity.h"
-#include "src/Systems/Base/SystemsManager.h"
-#include "src/Systems/Visual/RenderManager.h"
+#include "src/Core/Managers/SystemsManager.h"
+#include "src/Core/Managers/Visual/RenderManager.h"
 namespace SWGame {
 	World::World() {
 		m_SystemManager = new SystemsManager();

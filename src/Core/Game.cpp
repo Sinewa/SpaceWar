@@ -2,7 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "src/Systems/Visual/RenderManager.h"
+#include "src/Core/Managers/Visual/RenderManager.h"
+#include "src/Core/Managers/Visual/TextureManager.h"
 #include "src/Core/World.h"
 
 namespace SWGame {
