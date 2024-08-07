@@ -156,7 +156,7 @@
     <ClInclude Include="src\Core\Managers\SystemsManager.h" />
     <ClInclude Include="src\Core\Managers\Visual\RenderManager.h" />
     <ClInclude Include="src\Core\Managers\Visual\TextureManager.h" />
-    <ClInclude Include="src\Core\Utils\Position.h" />
+    <ClInclude Include="src\Core\Utils\Transformations.h" />
     <ClInclude Include="src\Core\Utils\Utils.h" />
     <ClInclude Include="src\Core\World.h" />
     <ClInclude Include="src\Entities\Base\BaseEntity.h" />

@@ -14,6 +14,9 @@ namespace SWGame {
 		InsertInput(InputFlags::Right, sf::Keyboard::Scancode::D);
 		InsertInput(InputFlags::Down, sf::Keyboard::Scancode::S);
 
+		InsertInput(InputFlags::RotateL, sf::Keyboard::Scancode::Q);
+		InsertInput(InputFlags::RotateR, sf::Keyboard::Scancode::E);
+		
 		InsertInput(InputFlags::Fire, sf::Keyboard::Scancode::Space);
 		InsertInput(InputFlags::Back, sf::Keyboard::Scancode::Escape);
 		InsertInput(InputFlags::Confirm, sf::Keyboard::Scancode::Enter);
@@ -44,7 +47,7 @@ namespace SWGame {
 	}
 	//-----------------------------------------------------------
 	void InputManager::RemoveInput(InputFlags keyFlag, sf::Keyboard::Scancode pKey) {
-		for (int i = m_aInputPairs.size() - 1; i >= 0; i--) {
+		for (int i = static_cast<int>(m_aInputPairs.size()) - 1; i >= 0; i--) {
 			if (m_aInputPairs[i] == std::make_pair(keyFlag, pKey)) {
 				m_aInputPairs[i] = m_aInputPairs[m_aInputPairs.size() - 1];
 				m_aInputPairs.pop_back();

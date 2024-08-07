@@ -11,13 +11,14 @@
 
 namespace SWGame {
 	Game::Game() 
-		: m_window(new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!", sf::Style::Default))
+		: m_window(new sf::RenderWindow(sf::VideoMode(800, 800), "SpaceWar", sf::Style::Close))
 		, m_ActiveWorld(new World())
 		, m_renderer(new RenderManager())
 		, m_textureManager(new TextureManager())
 		, m_inputManager(new InputManager())
 	{
 		m_inputManager->LoadInputs();
+		
 	}
 	//-----------------------------------------------------------
 	Game::~Game() {
@@ -25,7 +26,7 @@ namespace SWGame {
 	}
 	//-----------------------------------------------------------
 	void Game::Run() {
-		float dt;
+		float dt = 0;
 		sf::Clock clock;
 
 		std::vector<sf::Drawable*> drawables;
@@ -37,8 +38,10 @@ namespace SWGame {
 					m_window->close();
 			}
 
-			dt = clock.restart().asSeconds();
+			dt += clock.restart().asSeconds();
 			std::cout << dt << std::endl;
+			if (dt < 1 / 120.f)
+				continue;
 
 			m_inputManager->HandleInputs();
 
@@ -51,6 +54,7 @@ namespace SWGame {
 			m_window->clear();
 			m_renderer->Render(m_window);
 			m_window->display();
+			dt = 0;
 		}
 	}
 	//-----------------------------------------------------------
@@ -60,6 +64,10 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	InputManager* Game::GetInputManager() const {
 		return m_inputManager;
+	}
+	//-----------------------------------------------------------
+	TextureManager* Game::GetTextureManager() const {
+		return m_textureManager;
 	}
 	//-----------------------------------------------------------
 	Game* Game::GetGame() {

@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "src/Components/Base/Component.h"
-#include "src/Core/Utils/Position.h"
+#include "src/Core/Utils/Transformations.h"
 
 
 namespace SWGame {
@@ -37,12 +37,20 @@ namespace SWGame {
 		m_aComponents.push_back(comp);
 	}
 	//----------------------------------------------------------
-	void BaseEntity::SetTranslation(const PosF& pos) {
-		m_position = pos;
+	void BaseEntity::SetTranslation(const VecF& pos) {
+		m_transform.m_position = pos;
 	}
 	//----------------------------------------------------------
-	const PosF& BaseEntity::GetTranslation() const {
-		return m_position;
+	const VecF& BaseEntity::GetTranslation() const {
+		return m_transform.m_position;
+	}
+	//----------------------------------------------------------
+	void BaseEntity::SetTransform(const Transformation& transform) {
+		m_transform = transform;
+	}
+	//----------------------------------------------------------
+	const Transformation& BaseEntity::GetTransform() const {
+		return m_transform;
 	}
 	//----------------------------------------------------------
 }

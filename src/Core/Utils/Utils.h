@@ -7,6 +7,12 @@ constexpr auto BITF(TBit x) { return 1 << x; }
 //-----------------------------------------------------------
 //-----------------------------------------------------------
 
+template<typename Degree>
+constexpr auto ToRadians(Degree x) { return x * (180.0 / 3.141592653589793238463); }
+
+template<typename Radian>
+constexpr auto ToDegrees(Radian x) { return x * (3.141592653589793238463 / 180.f); }
+
 template<typename TEnum>
 class Flags {
 	uint32_t m_Flags = 0;

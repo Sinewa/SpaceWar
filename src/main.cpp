@@ -23,7 +23,8 @@ int main() {
   ent->AddComponent(new SWGame::PlayerMovementControllerComponent());
   ent->AddComponent(new SWGame::SpriteComponent());
   ent->Init();
-  ent->SetTranslation({ 100, 100, 0 });
+  //ent->SetTranslation();
+  ent->SetTransform({ { 100, 100 } , 1.f });
     
   game->Run();
   

@@ -2,7 +2,7 @@
 #include <vector>
 
 #include "src/Core/Utils/Utils.h"
-#include "src/Core/Utils/Position.h"
+#include "src/Core/Utils/Transformations.h"
 
 namespace sf {
 	class Drawable;
@@ -26,7 +26,8 @@ namespace SWGame {
 	private:
 		std::vector<Component*> m_aComponents;
 		Flags<EntityFlags> m_entityFlags;
-		PosF m_position;
+		Transformation m_transform;
+
 	public:
 		virtual void Init();
 
@@ -35,9 +36,11 @@ namespace SWGame {
 		virtual void Update(float dt);
 		virtual void GatherDraw(std::vector<sf::Drawable*>& retVal);
 
-		void SetTranslation(const PosF& translation);
-		const PosF& GetTranslation() const;
-		void SetTransformation() {};
+		void SetTranslation(const VecF& translation);
+		const VecF& GetTranslation() const;
+		void SetTransform(const Transformation& transform);
+		const Transformation& GetTransform() const;
+
 
 
 		/**

@@ -8,14 +8,16 @@
 
 namespace SWGame {
 	enum InputFlags {
-		Up			= BITF(0),
-		Down		= BITF(1),
-		Left		= BITF(2),
-		Right		= BITF(3),
-		Fire		= BITF(4),
-		Back		= BITF(5),
+		Up = BITF(0),
+		Down = BITF(1),
+		Left = BITF(2),
+		Right = BITF(3),
+		Fire = BITF(4),
+		Back = BITF(5),
 		Confirm = BITF(6),
-		Cancel	= BITF(7)
+		Cancel = BITF(7),
+		RotateL = BITF(8),
+		RotateR = BITF(9)
 	};
 
 	class InputManager {

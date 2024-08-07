@@ -83,7 +83,7 @@
     <ClInclude Include="src\Core\Managers\InputManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Utils\Position.h">
+    <ClInclude Include="src\Core\Utils\Transformations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Utils\Utils.h">

@@ -10,5 +10,7 @@ namespace SWGame {
 		
 	public:
 		virtual void Update(BaseEntity* owner, float dt) override;
+	protected:
+		
 	};
 }

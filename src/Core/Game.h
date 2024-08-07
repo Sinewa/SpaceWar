@@ -30,6 +30,7 @@ namespace SWGame {
 
 		World* GetWorld() const;
 		InputManager* GetInputManager() const;
+		TextureManager* GetTextureManager() const;
 
 		static Game* GetGame();
 	};
