@@ -2,6 +2,7 @@
 #include <vector>
 
 #include "src/Core/Utils/Utils.h"
+#include "src/Core/Utils/Position.h"
 
 namespace sf {
 	class Drawable;
@@ -25,7 +26,7 @@ namespace SWGame {
 	private:
 		std::vector<Component*> m_aComponents;
 		Flags<EntityFlags> m_entityFlags;
-
+		PosF m_position;
 	public:
 		virtual void Init();
 
