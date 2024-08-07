@@ -136,24 +136,24 @@
     <ClCompile Include="src\Components\Base\Component.cpp" />
     <ClCompile Include="src\Components\Visual\SpriteComponent.cpp" />
     <ClCompile Include="src\Core\Game.cpp" />
+    <ClCompile Include="src\Core\Managers\Visual\RenderManager.cpp" />
     <ClCompile Include="src\Core\World.cpp" />
     <ClCompile Include="src\Entities\Base\BaseEntity.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Systems\Base\BaseSystem.cpp" />
     <ClCompile Include="src\Systems\Base\SystemsManager.cpp" />
-    <ClCompile Include="src\Systems\Visual\RenderManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\Base\Component.h" />
     <ClInclude Include="src\Components\Visual\SpriteComponent.h" />
     <ClInclude Include="src\Core\Game.h" />
+    <ClInclude Include="src\Core\Managers\Visual\RenderManager.h" />
+    <ClInclude Include="src\Core\Managers\Visual\TextureManager.h" />
     <ClInclude Include="src\Core\Utils.h" />
     <ClInclude Include="src\Core\World.h" />
     <ClInclude Include="src\Entities\Base\BaseEntity.h" />
     <ClInclude Include="src\Systems\Base\BaseSystem.h" />
     <ClInclude Include="src\Systems\Base\SystemsManager.h" />
-    <ClInclude Include="src\Systems\Visual\RenderManager.h" />
-    <ClInclude Include="src\Systems\Visual\TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
