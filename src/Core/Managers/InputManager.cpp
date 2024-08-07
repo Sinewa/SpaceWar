@@ -43,4 +43,13 @@ namespace SWGame {
 		m_aInputPairs.push_back(std::make_pair(keyFlag, pKey));
 	}
 	//-----------------------------------------------------------
+	void InputManager::RemoveInput(InputFlags keyFlag, sf::Keyboard::Scancode pKey) {
+		for (int i = m_aInputPairs.size() - 1; i >= 0; i--) {
+			if (m_aInputPairs[i] == std::make_pair(keyFlag, pKey)) {
+				m_aInputPairs[i] = m_aInputPairs[m_aInputPairs.size() - 1];
+				m_aInputPairs.pop_back();
+			}
+		}
+	}
+	//-----------------------------------------------------------
 }

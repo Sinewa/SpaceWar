@@ -28,5 +28,6 @@ namespace SWGame {
 	protected:
 		void SetIfPressed(InputFlags keyFlag, sf::Keyboard::Scancode pKey);
 		void InsertInput(InputFlags keyFlag, sf::Keyboard::Scancode pKey);
+		void RemoveInput(InputFlags keyFlag, sf::Keyboard::Scancode pKey);
 	};
 }
