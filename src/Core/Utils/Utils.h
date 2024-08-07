@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdint>
 
 namespace SWGame {
 template<typename TBit>
@@ -21,6 +22,10 @@ public:
 	//-----------------------------------------------------------
 	void Clear(TEnum flags) {
 		m_Flags &= ~flags;
+	}
+	//-----------------------------------------------------------
+	void ClearAll() {
+		m_Flags = 0;
 	}
 };
 }

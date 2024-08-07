@@ -2,15 +2,20 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "src/Core/Managers/InputManager.h"
 #include "src/Core/Managers/Visual/RenderManager.h"
 #include "src/Core/Managers/Visual/TextureManager.h"
 #include "src/Core/World.h"
 
 namespace SWGame {
-	Game::Game() {
-		m_window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!", sf::Style::Default);
-		m_ActiveWorld = new World();
-		m_renderer = new RenderManager();
+	Game::Game() 
+		: m_window(new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!", sf::Style::Default))
+		, m_ActiveWorld(new World())
+		, m_renderer(new RenderManager())
+		, m_textureManager(new TextureManager())
+		, m_inputManager(new InputManager())
+	{
+		m_inputManager->LoadInputs();
 	}
 	//-----------------------------------------------------------
 	Game::~Game() {
@@ -31,6 +36,8 @@ namespace SWGame {
 			}
 
 			dt = clock.restart().asSeconds();
+
+			m_inputManager->HandleInputs();
 
 			m_ActiveWorld->Update(dt);
 

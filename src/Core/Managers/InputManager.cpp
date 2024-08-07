@@ -1,0 +1,46 @@
+#include "InputManager.h"
+
+#include <SFML/Window/Keyboard.hpp>
+
+#include "src/Core/Utils/Utils.h"
+
+
+namespace SWGame {
+	//-----------------------------------------------------------
+	void InputManager::LoadInputs() {
+
+		InsertInput(InputFlags::Up, sf::Keyboard::Scancode::W);
+		InsertInput(InputFlags::Left, sf::Keyboard::Scancode::A);
+		InsertInput(InputFlags::Right, sf::Keyboard::Scancode::D);
+		InsertInput(InputFlags::Down, sf::Keyboard::Scancode::S);
+
+		InsertInput(InputFlags::Fire, sf::Keyboard::Scancode::Space);
+		InsertInput(InputFlags::Back, sf::Keyboard::Scancode::Escape);
+		InsertInput(InputFlags::Confirm, sf::Keyboard::Scancode::Enter);
+		InsertInput(InputFlags::Cancel, sf::Keyboard::Scancode::Escape);
+
+	}
+	//-----------------------------------------------------------
+	void InputManager::HandleInputs() {
+		m_inputFlags.ClearAll();
+
+		for (auto& input : m_aInputPairs) {
+			SetIfPressed(input.first, input.second);
+		}
+	}
+	//-----------------------------------------------------------
+	bool InputManager::IsKeyPressed(InputFlags key) {
+		return m_inputFlags.IsSet(key);
+	}
+	//-----------------------------------------------------------
+	void InputManager::SetIfPressed(InputFlags keyFlag, sf::Keyboard::Scancode pKey) {
+		if (sf::Keyboard::isKeyPressed(pKey)) {
+			m_inputFlags.Set(keyFlag);
+		}
+	}
+	//-----------------------------------------------------------
+	void InputManager::InsertInput(InputFlags keyFlag, sf::Keyboard::Scancode pKey) {
+		m_aInputPairs.push_back(std::make_pair(keyFlag, pKey));
+	}
+	//-----------------------------------------------------------
+}

@@ -136,6 +136,7 @@
     <ClCompile Include="src\Components\Base\Component.cpp" />
     <ClCompile Include="src\Components\Visual\SpriteComponent.cpp" />
     <ClCompile Include="src\Core\Game.cpp" />
+    <ClCompile Include="src\Core\Managers\InputManager.cpp" />
     <ClCompile Include="src\Core\Managers\SystemsManager.cpp" />
     <ClCompile Include="src\Core\Managers\Visual\RenderManager.cpp" />
     <ClCompile Include="src\Core\World.cpp" />
@@ -151,7 +152,8 @@
     <ClInclude Include="src\Core\Managers\SystemsManager.h" />
     <ClInclude Include="src\Core\Managers\Visual\RenderManager.h" />
     <ClInclude Include="src\Core\Managers\Visual\TextureManager.h" />
-    <ClInclude Include="src\Core\Utils.h" />
+    <ClInclude Include="src\Core\Utils\Position.h" />
+    <ClInclude Include="src\Core\Utils\Utils.h" />
     <ClInclude Include="src\Core\World.h" />
     <ClInclude Include="src\Entities\Base\BaseEntity.h" />
     <ClInclude Include="src\Systems\Base\BaseSystem.h" />

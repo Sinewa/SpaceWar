@@ -1,7 +1,7 @@
 #pragma once 
 #include <vector>
 
-#include "src/Core/Utils.h"
+#include "src/Core/Utils/Utils.h"
 
 namespace sf {
 	class Drawable;
@@ -25,6 +25,7 @@ namespace SWGame {
 	private:
 		std::vector<Component*> m_aComponents;
 		Flags<EntityFlags> m_entityFlags;
+
 	public:
 		virtual void Init();
 
