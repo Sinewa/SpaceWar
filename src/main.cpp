@@ -19,8 +19,11 @@ int main() {
   ent->AddComponent(new SWGame::SpriteComponent());
   ent->Init();
   
-  game->GetWorld()->CreateEntity();
-  game->GetWorld()->CreateEntity();
+  ent = game->GetWorld()->CreateEntity();
+  ent->AddComponent(new SWGame::PlayerMovementControllerComponent());
+  ent->AddComponent(new SWGame::SpriteComponent());
+  ent->Init();
+  ent->SetTranslation({ 100, 100, 0 });
     
   game->Run();
   
