@@ -17,7 +17,7 @@ namespace SWGame {
 		float sRot = sinf(ToRadians(transform.m_rotation));
 		float cRot = cosf(ToRadians(transform.m_rotation));
 
-		return transform.m_position + VecF{ cRot, sRot };
+		return VecF{ -sRot, cRot };
 	}
 	//-----------------------------------------------------------
 

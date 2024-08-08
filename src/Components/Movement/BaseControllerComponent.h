@@ -6,7 +6,7 @@
 namespace SWGame {
 	class BaseControllerComponent : public Component {
 	protected:
-		float m_fSpeed = 10.f;
+		float m_fSpeed = 100.f;
 		float m_fRotationSpeed = 90.f;
 	public:
 	protected:
