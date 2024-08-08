@@ -21,6 +21,7 @@ namespace SWGame {
 		~World();
 
 		BaseEntity* CreateEntity();
+		BaseEntity* AddEntity(BaseEntity* ent);
 		virtual void Update(float dt);
 		void GatherDraw(std::vector<sf::Drawable*>& drawables);
 		SystemsManager* GetSystems();

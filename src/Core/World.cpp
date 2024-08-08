@@ -46,6 +46,12 @@ namespace SWGame {
 		return newEnt;
 	}
 	//-----------------------------------------------------------
+	BaseEntity* World::AddEntity(BaseEntity* ent) {
+		ent->SetFlags(EntityFlags::EF_ACTIVE);
+		m_aEntities.push_back(ent);
+		return ent;
+	}
+	//-----------------------------------------------------------
 	SystemsManager* World::GetSystems() {
 		return m_SystemManager;
 	}

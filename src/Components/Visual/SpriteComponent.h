@@ -14,8 +14,12 @@ namespace SWGame {
 	public:
 		virtual void Init(BaseEntity* owner) override;
 		SpriteComponent();
+		SpriteComponent(const std::string& fileName);
 
 		virtual void Update(BaseEntity* owner, float dt) override;
 		virtual void GatherDraw(std::vector<sf::Drawable*>& retVal) override;
+
+	protected:
+		bool LoadTexture(const std::string& fileName);
 	};
 }

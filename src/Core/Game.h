@@ -2,6 +2,8 @@
 
 #include <vector>
 
+#include "src/Core/Utils/Transformations.h"
+
 namespace sf {
 	class RenderWindow;
 }
@@ -31,6 +33,8 @@ namespace SWGame {
 		World* GetWorld() const;
 		InputManager* GetInputManager() const;
 		TextureManager* GetTextureManager() const;
+
+		VecU GetGameAreaSize() const;
 
 		static Game* GetGame();
 	};

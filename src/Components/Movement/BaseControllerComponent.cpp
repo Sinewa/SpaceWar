@@ -1,15 +1,27 @@
 #include "BaseControllerComponent.h"
 
+#include <cmath>
+
 #include "src/Entities/Base/BaseEntity.h"
+#include "src/Core/Game.h"
 
 namespace SWGame {
 	//-----------------------------------------------------------
 	void BaseControllerComponent::SetTranslation(const VecF& translation) {
-		m_pOwner->SetTranslation(translation);
+		auto size = Game::GetGame()->GetGameAreaSize();
+		VecF actualTranslation = translation ;
+		actualTranslation.x = std::fmod(actualTranslation.x > 0 ? actualTranslation.x : actualTranslation.x + size.x, size.x);
+		actualTranslation.y = std::fmod(actualTranslation.y > 0 ? actualTranslation.y : actualTranslation.y + size.y, size.y);
+		
+		m_pOwner->SetTranslation(actualTranslation);
 	}
 	//-----------------------------------------------------------
 	void BaseControllerComponent::SetTransform(const Transformation& transform){
-		m_pOwner->SetTransform(transform);
+		auto size = Game::GetGame()->GetGameAreaSize();
+		VecF actualTranslation = transform.GetPosition();
+		actualTranslation.x = std::fmod(actualTranslation.x > 0 ? actualTranslation.x : actualTranslation.x + size.x, size.x);
+		actualTranslation.y = std::fmod(actualTranslation.y > 0 ? actualTranslation.y : actualTranslation.y + size.y, size.y);
+		m_pOwner->SetTransform({actualTranslation, transform.GetRotation()});
 	}
 	//-----------------------------------------------------------
 	VecF BaseControllerComponent::GetFrontVector() {

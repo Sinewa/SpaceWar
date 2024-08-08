@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\Base\Component.cpp" />
+    <ClCompile Include="src\Components\Movement\AsteroidControlComponent.cpp" />
     <ClCompile Include="src\Components\Movement\BaseControllerComponent.cpp" />
     <ClCompile Include="src\Components\Movement\PlayerMovementControllerComponent.cpp" />
     <ClCompile Include="src\Components\Visual\SpriteComponent.cpp" />
@@ -148,8 +149,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\Base\Component.h" />
+    <ClInclude Include="src\Components\Movement\AsteroidControlComponent.h" />
     <ClInclude Include="src\Components\Movement\BaseControllerComponent.h" />
     <ClInclude Include="src\Components\Movement\PlayerMovementControllerComponent.h" />
+    <ClInclude Include="src\Components\Physics\PhysicsComponent.h" />
     <ClInclude Include="src\Components\Visual\SpriteComponent.h" />
     <ClInclude Include="src\Core\Game.h" />
     <ClInclude Include="src\Core\Managers\InputManager.h" />
@@ -160,7 +163,9 @@
     <ClInclude Include="src\Core\Utils\Utils.h" />
     <ClInclude Include="src\Core\World.h" />
     <ClInclude Include="src\Entities\Base\BaseEntity.h" />
+    <ClInclude Include="src\Prefabs\BasePrefab.h" />
     <ClInclude Include="src\Systems\Base\BaseSystem.h" />
+    <ClInclude Include="src\Systems\Physics\PhysicsSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

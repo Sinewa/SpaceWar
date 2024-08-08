@@ -8,6 +8,7 @@
 #include "src/Core/Managers/Visual/RenderManager.h"
 #include "src/Core/Managers/Visual/TextureManager.h"
 #include "src/Core/World.h"
+#include "src/Core/Utils/Transformations.h"
 
 namespace SWGame {
 	Game::Game() 
@@ -68,6 +69,11 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	TextureManager* Game::GetTextureManager() const {
 		return m_textureManager;
+	}
+	//-----------------------------------------------------------
+	VecU Game::GetGameAreaSize() const {
+		auto size = m_window->getSize();
+		return VecU(size.x, size.y);
 	}
 	//-----------------------------------------------------------
 	Game* Game::GetGame() {
