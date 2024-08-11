@@ -15,7 +15,8 @@ namespace SWGame {
 	enum EntityFlags
 	{
 		EF_ACTIVE = BITF(0),
-		EF_VISIBLE = BITF(1)
+		EF_VISIBLE = BITF(1),
+		EF_DELETE = BITF(2)
 	};
 	inline EntityFlags operator|(EntityFlags a, EntityFlags b)
 	{

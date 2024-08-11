@@ -1,10 +1,12 @@
 #pragma once 
 
 #include "src/Entities/Base/BaseEntity.h"
+#include "src/Entities/Projectile/Projectile.h"
 #include "src/Components/Movement/PlayerMovementControllerComponent.h"
 #include "src/Components/Movement/ProjectileControlComponent.h"
 #include "src/Components/Visual/SpriteComponent.h"
 #include "src/Components/Physics/PhysicsComponent.h"
+#include "src/Components/Projectile/ShootingComponent.h"
 
 #include "src/Core/Utils/Transformations.h"
 
@@ -14,6 +16,7 @@ namespace SWPrefabs {
     ship->AddComponent(new SWGame::PlayerMovementControllerComponent());
     ship->AddComponent(new SWGame::SpriteComponent("assets/Ship.png"));
 		ship->AddComponent(new SWGame::PhysicsComponent());
+		ship->AddComponent(new SWGame::ShootingComponent());
 		ship->SetTransform({ pos, angle });
 		ship->Init();
 		return ship;
@@ -30,10 +33,12 @@ namespace SWPrefabs {
 		return asteroid;
 	}
 
-	static SWGame::BaseEntity* CreateProjectile(const SWGame::VecF& pos, float angle, SWGame::VecF movementVec, float speed) {
+	static SWGame::BaseEntity* CreateProjectile(const SWGame::VecF& pos, float angle, SWGame::VecF movementVec, float speed, float timer) {
 		movementVec.Normalize();
-		SWGame::BaseEntity* projectile = new SWGame::BaseEntity();
-		projectile->AddComponent(new SWGame::ProjectileControlComponent(movementVec, speed));
+		SWGame::BaseEntity* projectile = new SWGame::Projectile(timer);
+		auto projComp = new SWGame::ProjectileControlComponent(movementVec, speed);
+		projComp->SetRotationSpeed(1440);
+		projectile->AddComponent(projComp);
 		projectile->AddComponent(new SWGame::SpriteComponent("assets/Projectile.png"));
 		projectile->AddComponent(new SWGame::PhysicsComponent());
 		projectile->SetTransform({ pos, angle });

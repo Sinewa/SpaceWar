@@ -32,6 +32,14 @@ namespace SWGame {
 		return VecF{ -sRot, cRot };
 	}
 	//-----------------------------------------------------------
+	void BaseControllerComponent::SetSpeed(float speed) {
+		m_fSpeed = speed;
+	}
+	//-----------------------------------------------------------
+	void BaseControllerComponent::SetRotationSpeed(float speed) {
+		m_fRotationSpeed = speed;
+	}
+	//-----------------------------------------------------------
 
 
 }

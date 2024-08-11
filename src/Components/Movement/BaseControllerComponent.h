@@ -9,6 +9,8 @@ namespace SWGame {
 		float m_fSpeed = 200.f;
 		float m_fRotationSpeed = 90.f;
 	public:
+		void SetSpeed(float speed);
+		void SetRotationSpeed(float speed);
 	protected:
 		void SetTranslation(const VecF& translation);
 		void SetTransform(const Transformation& transform);

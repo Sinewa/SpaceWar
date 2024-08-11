@@ -9,13 +9,13 @@ namespace sf {
 namespace SWGame {
 	class BaseEntity;
 	class SystemsManager;
+	class EntityManager;
 	class RenderManager;
 
 	class World {
 	protected:
-		std::vector<BaseEntity*> m_aEntities;
 		SystemsManager* m_SystemManager;
-		
+		EntityManager* m_EntityManager;
 	public:
 		World();
 		~World();

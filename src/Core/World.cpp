@@ -7,13 +7,17 @@
 #include "src/Entities/Base/BaseEntity.h"
 #include "src/Core/Managers/SystemsManager.h"
 #include "src/Core/Managers/Visual/RenderManager.h"
+#include "src/Core/Managers/EntityManager.h"
+
 namespace SWGame {
 	World::World() {
 		m_SystemManager = new SystemsManager();
+		m_EntityManager = new EntityManager();
 	}
 	//-----------------------------------------------------------
 	World::~World() {
 		delete m_SystemManager;
+		delete m_EntityManager;
 	}
 	//-----------------------------------------------------------
 	void World::Update(float dt) {
@@ -23,33 +27,20 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void World::UpdateEntities(float dt) {
 		//std::cout << "Updating World" << std::endl;
-
-		for (BaseEntity* ent : m_aEntities) {
-			if (ent->IsFlag(EntityFlags::EF_ACTIVE))
-				ent->Update(dt);
-		}
+		m_EntityManager->UpdateEntities(dt);
 	}
 	//-----------------------------------------------------------
 	void World::GatherDraw(std::vector<sf::Drawable*>& drawables) {
-		for (BaseEntity* ent : m_aEntities) {
-			if (ent->IsFlag(EntityFlags::EF_ACTIVE) && ent->IsFlag(EntityFlags::EF_VISIBLE))
-			{
- 				ent->GatherDraw(drawables);
-			}
-		}
+		m_EntityManager->GatherDraw(drawables);
 	}
 	//-----------------------------------------------------------
 	BaseEntity* World::CreateEntity() {
 		BaseEntity* newEnt = new BaseEntity();
-		newEnt->SetFlags(EntityFlags::EF_ACTIVE);
-		m_aEntities.push_back(newEnt);
-		return newEnt;
+		return m_EntityManager->AddEntity(newEnt);
 	}
 	//-----------------------------------------------------------
 	BaseEntity* World::AddEntity(BaseEntity* ent) {
-		ent->SetFlags(EntityFlags::EF_ACTIVE);
-		m_aEntities.push_back(ent);
-		return ent;
+		return m_EntityManager->AddEntity(ent);
 	}
 	//-----------------------------------------------------------
 	SystemsManager* World::GetSystems() {
