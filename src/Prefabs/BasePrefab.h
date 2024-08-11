@@ -2,7 +2,7 @@
 
 #include "src/Entities/Base/BaseEntity.h"
 #include "src/Components/Movement/PlayerMovementControllerComponent.h"
-#include "src/Components/Movement/AsteroidControlComponent.h"
+#include "src/Components/Movement/ProjectileControlComponent.h"
 #include "src/Components/Visual/SpriteComponent.h"
 #include "src/Components/Physics/PhysicsComponent.h"
 
@@ -22,11 +22,22 @@ namespace SWPrefabs {
 	static SWGame::BaseEntity* CreateAsteroid(const SWGame::VecF& pos, float angle, SWGame::VecF movementVec, float speed) {
 		movementVec.Normalize();
 		SWGame::BaseEntity* asteroid = new SWGame::BaseEntity();
-		asteroid->AddComponent(new SWGame::AsteroidControlComponent(movementVec, speed));
+		asteroid->AddComponent(new SWGame::ProjectileControlComponent(movementVec, speed));
 		asteroid->AddComponent(new SWGame::SpriteComponent("assets/Asteroid.png"));
 		asteroid->AddComponent(new SWGame::PhysicsComponent());
 		asteroid->SetTransform({ pos, angle });
 		asteroid->Init();
 		return asteroid;
+	}
+
+	static SWGame::BaseEntity* CreateProjectile(const SWGame::VecF& pos, float angle, SWGame::VecF movementVec, float speed) {
+		movementVec.Normalize();
+		SWGame::BaseEntity* projectile = new SWGame::BaseEntity();
+		projectile->AddComponent(new SWGame::ProjectileControlComponent(movementVec, speed));
+		projectile->AddComponent(new SWGame::SpriteComponent("assets/Projectile.png"));
+		projectile->AddComponent(new SWGame::PhysicsComponent());
+		projectile->SetTransform({ pos, angle });
+		projectile->Init();
+		return projectile;
 	}
 }

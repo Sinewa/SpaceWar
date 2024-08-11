@@ -1,4 +1,4 @@
-#include "AsteroidControlComponent.h"
+#include "ProjectileControlComponent.h"
 
 #include "src/Components/Movement/BaseControllerComponent.h"
 #include "src/Core/Game.h"
@@ -6,14 +6,14 @@
 
 namespace SWGame {
 	//-----------------------------------------------------------
-	AsteroidControlComponent::AsteroidControlComponent(const VecF& movement, float speed)
+	ProjectileControlComponent::ProjectileControlComponent(const VecF& movement, float speed)
 			: BaseControllerComponent()
 			, m_VecOfMovement(movement) {
 			m_fSpeed = speed;
 		}
 	//-----------------------------------------------------------
 
-	void AsteroidControlComponent::Update(BaseEntity* owner, float dt) {
+	void ProjectileControlComponent::Update(BaseEntity* owner, float dt) {
 		BaseControllerComponent::Update(owner, dt);
 
 		Transformation transform = owner->GetTransform();

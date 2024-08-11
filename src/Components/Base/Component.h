@@ -11,7 +11,7 @@ namespace SWGame {
 
 	class Component {
 	protected:
-		BaseEntity* m_pOwner;
+		BaseEntity* m_pOwner = nullptr;
 	public:
 		virtual void Init(BaseEntity* owner);
 

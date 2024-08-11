@@ -51,7 +51,7 @@
     <ClCompile Include="src\Components\Movement\BaseControllerComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Components\Movement\AsteroidControlComponent.cpp">
+    <ClCompile Include="src\Components\Movement\ProjectileControlComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,7 +107,7 @@
     <ClInclude Include="src\Prefabs\BasePrefab.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\Movement\AsteroidControlComponent.h">
+    <ClInclude Include="src\Components\Movement\ProjectileControlComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
