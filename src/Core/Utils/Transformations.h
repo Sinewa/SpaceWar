@@ -43,9 +43,13 @@ namespace SWGame {
 		}
 
 		void Normalize() {
-			float len = std::sqrt(x * x + y * y);
+			float len = Length();
 			x /= len;
 			y /= len;
+		}
+
+		T Length() const {
+			return std::sqrt(x * x + y * y);
 		}
 	};
 

@@ -14,19 +14,24 @@ namespace SWGame {
 		Transformation transform = owner->GetTransform();
 		InputManager* inputs = Game::GetGame()->GetInputManager();
 		if (inputs->IsKeyPressed(InputFlags::Up))
-			transform.m_position -= GetFrontVector() * m_fSpeed * dt;
-		if (inputs->IsKeyPressed(InputFlags::Down))
-			transform.m_position += GetFrontVector() * m_fSpeed * dt;
-		//if (inputs->IsKeyPressed(InputFlags::Left))
-		//	transform.m_position.x -= m_fSpeed * dt;
-		//if (inputs->IsKeyPressed(InputFlags::Right))
-		//	transform.m_position.x += m_fSpeed * dt;
+			m_vVelocity -= GetFrontVector() * m_fAcceleration * dt;
+		if (inputs->IsKeyPressed(InputFlags::Down)) {
+			m_vVelocity += GetFrontVector() * m_fAcceleration * dt;
+			if (m_vVelocity.Length() < 5.f)
+				m_vVelocity = { 0, 0 };
+		}
 		if (inputs->IsKeyPressed(InputFlags::RotateL))
 			transform.m_rotation -= m_fRotationSpeed * dt;
 		if (inputs->IsKeyPressed(InputFlags::RotateR))
 			transform.m_rotation += m_fRotationSpeed * dt;
 
+		transform.m_position += m_vVelocity * dt;
+
 		SetTransform(transform);
+	}
+	//-----------------------------------------------------------
+	const VecF& PlayerMovementControllerComponent::GetVelocity() const {
+		return m_vVelocity;
 	}
 	//-----------------------------------------------------------
 }

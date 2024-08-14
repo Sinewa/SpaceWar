@@ -1,5 +1,6 @@
 #include "ShootingComponent.h"
 
+#include "src/Components/Movement/PlayerMovementControllerComponent.h"
 #include "src/Core/Game.h"
 #include "src/Core/World.h"
 #include "src/Core/Managers/InputManager.h"
@@ -19,10 +20,17 @@ namespace SWGame {
 			m_shootingDelay = m_shootingDelayOriginal;
 			auto muzzlePos = GetWorldMuzzlePosition();
 			auto ownerPos = m_pOwner->GetTranslation();
-
-			Game::GetGame()->GetWorld()->AddEntity(SWPrefabs::CreateProjectile(muzzlePos, 0, muzzlePos - ownerPos, m_projectileSpeed, m_projectileTimer));
+			auto ownerVelocity = m_pPlayerMovement->GetVelocity();
+			
+			Game::GetGame()->GetWorld()->AddEntity(SWPrefabs::CreateProjectile(muzzlePos, 0, (muzzlePos - ownerPos) * m_initialVeloctiy + ownerVelocity, m_projectileSpeed + ownerVelocity.Length(), m_projectileTimer));
 		}
 		m_shootingDelay -= dt;
+	}
+	//-----------------------------------------------------------
+	void ShootingComponent::Init(BaseEntity* owner) {
+		Component::Init(owner);
+
+		m_pPlayerMovement = owner->FindComponent<PlayerMovementControllerComponent>();
 	}
 	//-----------------------------------------------------------
 	VecF ShootingComponent::GetLocalMuzzlePosition() {
