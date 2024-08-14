@@ -13,6 +13,12 @@ namespace SWGame {
 		}
 	}
 	//-----------------------------------------------------------
+	void BaseEntity::OnDelete() {
+		for (Component* comp : m_aComponents) {
+			delete comp;
+		}
+	}
+	//-----------------------------------------------------------
 	void BaseEntity::Update(float dt) {
 		for (Component* comp: m_aComponents) {
 			comp->Update(this, dt);

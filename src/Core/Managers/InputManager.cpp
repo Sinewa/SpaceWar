@@ -22,6 +22,7 @@ namespace SWGame {
 		InsertInput(InputFlags::Confirm, sf::Keyboard::Scancode::Enter);
 		InsertInput(InputFlags::Cancel, sf::Keyboard::Scancode::Escape);
 
+		InsertInput(InputFlags::DEBUG, sf::Keyboard::Scancode::Num0);
 	}
 	//-----------------------------------------------------------
 	void InputManager::HandleInputs() {

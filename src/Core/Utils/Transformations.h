@@ -19,7 +19,7 @@ namespace SWGame {
 			return result;
 		}
 
-		Vector2<T> operator- (const Vector2& other) {
+		Vector2<T> operator- (const Vector2& other) const {
 			Vector2<T> result;
 			result.x = x - other.x;
 			result.y = y - other.y;
@@ -30,7 +30,7 @@ namespace SWGame {
 			y -= other.y;
 			return *this;
 		}
-		Vector2<T> operator+ (const Vector2& other) {
+		Vector2<T> operator+ (const Vector2& other) const {
 			Vector2<T> result;
 			result.x = x + other.x;
 			result.y = y + other.y;
@@ -50,6 +50,10 @@ namespace SWGame {
 
 		T Length() const {
 			return std::sqrt(x * x + y * y);
+		}
+
+		T LengthSquared() const{
+			return x * x + y * y;
 		}
 	};
 

@@ -15,6 +15,7 @@ namespace SWGame {
 
 		for (int i = m_aEntities.size() - 1; i >= 0; --i) {
 			if (m_aEntities[i]->IsFlag(EntityFlags::EF_DELETE)) {
+				m_aEntities[i]->OnDelete();
 				delete m_aEntities[i];
 				m_aEntities[i] = m_aEntities[m_aEntities.size() - 1];
 				m_aEntities.pop_back();

@@ -48,4 +48,13 @@ namespace SWGame {
 		m_sprite->setColor(sf::Color::Green);
 		return false;
 	}
+	//-----------------------------------------------------------
+	unsigned int SpriteComponent::GetSize() const {
+		return m_sprite->getTexture()->getSize().x;
+	}
+	//-----------------------------------------------------------
+	VecF SpriteComponent::GetOrigin() const {
+		auto origin = m_sprite->getOrigin();
+		return VecF(origin.x, origin.y);
+	}
 }

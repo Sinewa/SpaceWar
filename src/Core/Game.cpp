@@ -19,7 +19,13 @@ namespace SWGame {
 		, m_inputManager(new InputManager())
 	{
 		m_inputManager->LoadInputs();
-		
+		m_ActiveWorld->Init();
+
+
+		auto circle = new sf::CircleShape(50.f);
+		circle->setOrigin(100.f, 100.f);
+		circle->setFillColor(sf::Color::Green);
+		m_renderer->AddDiagDrawable(circle);
 	}
 	//-----------------------------------------------------------
 	Game::~Game() {
@@ -65,6 +71,10 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	InputManager* Game::GetInputManager() const {
 		return m_inputManager;
+	}
+	//-----------------------------------------------------------
+	RenderManager* Game::GetRenderer() const {
+		return m_renderer;
 	}
 	//-----------------------------------------------------------
 	TextureManager* Game::GetTextureManager() const {

@@ -33,9 +33,11 @@ namespace SWGame {
 		World* GetWorld() const;
 		InputManager* GetInputManager() const;
 		TextureManager* GetTextureManager() const;
+		RenderManager* GetRenderer() const;
 
 		VecU GetGameAreaSize() const;
 
+		
 		static Game* GetGame();
 	};
 }

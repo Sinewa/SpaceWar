@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "src/Components/Base/Component.h"
+#include "src/Core/Utils/Transformations.h"
 
 namespace sf {
 	class Texture;
@@ -19,6 +20,8 @@ namespace SWGame {
 		virtual void Update(BaseEntity* owner, float dt) override;
 		virtual void GatherDraw(std::vector<sf::Drawable*>& retVal) override;
 
+		unsigned int GetSize() const;
+		VecF GetOrigin() const;
 	protected:
 		bool LoadTexture(const std::string& fileName);
 	};

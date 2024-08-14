@@ -21,5 +21,8 @@ namespace SWGame {
 			}
 			return nullptr;
 		}
+
+		void AddSystem(BaseSystem* sys);
+
 	};
 }

@@ -19,7 +19,7 @@ namespace SWGame {
 	public:
 		World();
 		~World();
-
+		void Init();
 		BaseEntity* CreateEntity();
 		BaseEntity* AddEntity(BaseEntity* ent);
 		virtual void Update(float dt);

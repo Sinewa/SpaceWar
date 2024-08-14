@@ -13,6 +13,8 @@ namespace SWGame {
 	protected:
 		BaseEntity* m_pOwner = nullptr;
 	public:
+		virtual ~Component() = default;
+
 		virtual void Init(BaseEntity* owner);
 
 		virtual void Update(BaseEntity* owner, float dt);

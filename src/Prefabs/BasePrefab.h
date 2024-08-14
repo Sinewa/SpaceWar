@@ -14,8 +14,9 @@ namespace SWPrefabs {
 	static SWGame::BaseEntity* CreateShip(const SWGame::VecF& pos, float angle) {
 		SWGame::BaseEntity* ship = new SWGame::BaseEntity();
     ship->AddComponent(new SWGame::PlayerMovementControllerComponent());
-    ship->AddComponent(new SWGame::SpriteComponent("assets/Ship.png"));
-		ship->AddComponent(new SWGame::PhysicsComponent());
+		auto sprite = new SWGame::SpriteComponent("assets/Ship.png");
+    ship->AddComponent(sprite);
+		ship->AddComponent(new SWGame::PhysicsComponent(sprite->GetSize()/2, sprite->GetOrigin()));
 		ship->AddComponent(new SWGame::ShootingComponent());
 		ship->SetTransform({ pos, angle });
 		ship->Init();
@@ -26,8 +27,9 @@ namespace SWPrefabs {
 		movementVec.Normalize();
 		SWGame::BaseEntity* asteroid = new SWGame::BaseEntity();
 		asteroid->AddComponent(new SWGame::ProjectileControlComponent(movementVec, speed));
-		asteroid->AddComponent(new SWGame::SpriteComponent("assets/Asteroid.png"));
-		asteroid->AddComponent(new SWGame::PhysicsComponent());
+		auto sprite = new SWGame::SpriteComponent("assets/Asteroid.png");
+		asteroid->AddComponent(sprite);
+		asteroid->AddComponent(new SWGame::PhysicsComponent(sprite->GetSize()/2, sprite->GetOrigin()));
 		asteroid->SetTransform({ pos, angle });
 		asteroid->Init();
 		return asteroid;
@@ -39,8 +41,9 @@ namespace SWPrefabs {
 		auto projComp = new SWGame::ProjectileControlComponent(movementVec, speed);
 		projComp->SetRotationSpeed(1440);
 		projectile->AddComponent(projComp);
-		projectile->AddComponent(new SWGame::SpriteComponent("assets/Projectile.png"));
-		projectile->AddComponent(new SWGame::PhysicsComponent());
+		auto sprite = new SWGame::SpriteComponent("assets/Projectile.png");
+		projectile->AddComponent(sprite);
+		projectile->AddComponent(new SWGame::PhysicsComponent(sprite->GetSize()/2, sprite->GetOrigin()));
 		projectile->SetTransform({ pos, angle });
 		projectile->Init();
 		return projectile;

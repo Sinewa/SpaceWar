@@ -137,6 +137,7 @@
     <ClCompile Include="src\Components\Movement\ProjectileControlComponent.cpp" />
     <ClCompile Include="src\Components\Movement\BaseControllerComponent.cpp" />
     <ClCompile Include="src\Components\Movement\PlayerMovementControllerComponent.cpp" />
+    <ClCompile Include="src\Components\Physics\PhysicsComponent.cpp" />
     <ClCompile Include="src\Components\Projectile\ShootingComponent.cpp" />
     <ClCompile Include="src\Components\Visual\SpriteComponent.cpp" />
     <ClCompile Include="src\Core\Game.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="src\Entities\Projectile\Projectile.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Systems\Base\BaseSystem.cpp" />
+    <ClCompile Include="src\Systems\Physics\PhysicsSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\Base\Component.h" />

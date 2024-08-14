@@ -17,7 +17,8 @@ namespace SWGame {
 		Confirm = BITF(6),
 		Cancel = BITF(7),
 		RotateL = BITF(8),
-		RotateR = BITF(9)
+		RotateR = BITF(9),
+		DEBUG = BITF(10)
 	};
 
 	class InputManager {

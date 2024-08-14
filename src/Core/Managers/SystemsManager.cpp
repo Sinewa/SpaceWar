@@ -7,5 +7,13 @@ namespace SWGame {
 		for (BaseSystem* sys : m_aSystems) {
 			sys->Update(dt);
 		}
+
+		for (BaseSystem* sys : m_aSystems) {
+			sys->OnDiag(dt);
+		}
+	}
+	//-----------------------------------------------------------
+	void SystemsManager::AddSystem(BaseSystem* sys) {
+		m_aSystems.push_back(sys);
 	}
 }

@@ -31,7 +31,7 @@ namespace SWGame {
 
 	public:
 		virtual void Init();
-
+		virtual void OnDelete();
 		bool IsFlag(EntityFlags flag) const;
 		void SetFlags(EntityFlags flags);
 		virtual void Update(float dt);

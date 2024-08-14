@@ -19,7 +19,7 @@ int main() {
   
   SWGame::World* world = game->GetWorld();
 
-  world->AddEntity(SWPrefabs::CreateShip({ 100, 100 }, 0.f));
+  world->AddEntity(SWPrefabs::CreateShip({ 0, 0 }, 0.f));
   world->AddEntity(SWPrefabs::CreateAsteroid({ 100, 100 }, 1.f, { 1.f, 0.f }, 10.f));
   world->AddEntity(SWPrefabs::CreateAsteroid({ 100, 120 }, 1.f, { 1.f, 0.f }, 20.f));
   world->AddEntity(SWPrefabs::CreateAsteroid({ 100, 140 }, 1.f, { 1.f, 0.f }, 30.f));
@@ -35,7 +35,7 @@ int main() {
   world->AddEntity(SWPrefabs::CreateAsteroid({ 100, 340 }, 1.f, { 4.7f, 4.f }, 10.f));
   world->AddEntity(SWPrefabs::CreateAsteroid({ 100, 360 }, 1.f, { 9.f, 5.f }, 10.f));
   world->AddEntity(SWPrefabs::CreateAsteroid({ 100, 380 }, 1.f, { 1.f, 6.f }, 10.f));
-  
+
   game->Run();
   
   Cleanup();
