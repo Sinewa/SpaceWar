@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <cstdlib>
 
 namespace SWGame {
 template<typename TBit>
@@ -12,6 +13,16 @@ constexpr auto ToRadians(Degree x) { return x * (3.141592653589793238463 / 180.f
 
 template<typename Radian>
 constexpr auto ToDegrees(Radian x) { return x * (180.0 / 3.141592653589793238463); }
+
+struct Random {
+	static float GetRandomFloat01() {
+		return static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+	}
+
+	static int GetRandomInt() {
+		return rand();
+	}
+};
 
 template<typename TEnum>
 class Flags {

@@ -34,6 +34,7 @@ namespace SWGame {
 		virtual void OnDelete();
 		bool IsFlag(EntityFlags flag) const;
 		void SetFlags(EntityFlags flags);
+		void ClearFlag(EntityFlags flag);
 		virtual void Update(float dt);
 		virtual void GatherDraw(std::vector<sf::Drawable*>& retVal);
 

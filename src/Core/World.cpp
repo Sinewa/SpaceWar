@@ -10,6 +10,7 @@
 #include "src/Core/Managers/EntityManager.h"
 
 #include "src/Systems/Physics/PhysicsSystem.h"
+#include "src/Systems/Game/AsteroidSystem.h"
 
 namespace SWGame {
 	World::World() {
@@ -24,6 +25,7 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void World::Init() {
 		m_SystemManager->AddSystem(new PhysicsSystem());
+		m_SystemManager->AddSystem(new AsteroidSystem(5));
 	}
 	//-----------------------------------------------------------
 	void World::Update(float dt) {

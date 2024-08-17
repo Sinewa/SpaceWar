@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+#include "src/Core/Utils/Array.h"
 
 #include "src/Systems/Base/BaseSystem.h"
 
@@ -11,7 +11,7 @@ namespace SWGame {
 
 	class PhysicsSystem : public BaseSystem {
 	protected:
-		std::vector<PhysicsComponent*> m_aPhysicsComps;
+		Array<PhysicsComponent*> m_aPhysicsComps;
 		bool m_bDebugActive = false;
 	public:
 		virtual void Update(float dt) override;

@@ -16,6 +16,7 @@ namespace SWGame {
 		virtual ~Component() = default;
 
 		virtual void Init(BaseEntity* owner);
+		virtual void OnDelete(BaseEntity* owner);
 
 		virtual void Update(BaseEntity* owner, float dt);
 		virtual void GatherDraw(std::vector<sf::Drawable*>& retVal);

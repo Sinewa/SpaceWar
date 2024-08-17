@@ -16,19 +16,31 @@ namespace SWGame {
 	}
 	//-----------------------------------------------------------
 	PhysicsComponent::~PhysicsComponent() {
-		auto* phySys = Game::GetGame()->GetWorld()->GetSystems()->FindSystem<PhysicsSystem>();
-		phySys->UnRegister(this);
+
 	}
 	//-----------------------------------------------------------
 	void PhysicsComponent::Init(BaseEntity* owner){
 		Component::Init(owner);
 
-		auto* phySys = Game::GetGame()->GetWorld()->GetSystems()->FindSystem<PhysicsSystem>();
+		auto* phySys = Game::GetGame()->GetActiveWorld()->GetSystems()->FindSystem<PhysicsSystem>();
 		phySys->Register(this);
 	}
 	//-----------------------------------------------------------
+	void PhysicsComponent::OnDelete(BaseEntity* owner) {
+		Component::OnDelete(owner);
+
+		auto* phySys = Game::GetGame()->GetActiveWorld()->GetSystems()->FindSystem<PhysicsSystem>();
+		phySys->UnRegister(this);
+	}
+	//-----------------------------------------------------------
 	void PhysicsComponent::OnCollision(const PhysicsComponent* other) {
+		
 		m_pOwner->SetFlags(EntityFlags::EF_DELETE);
+		//m_pOwner->ClearFlag(EntityFlags::EF_ACTIVE);
+	}
+	//-----------------------------------------------------------
+	EType PhysicsComponent::GetType() const {
+		return m_Type;
 	}
 	//-----------------------------------------------------------
 }

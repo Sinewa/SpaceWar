@@ -22,7 +22,7 @@ namespace SWGame {
 			auto ownerPos = m_pOwner->GetTranslation();
 			auto ownerVelocity = m_pPlayerMovement->GetVelocity();
 			
-			Game::GetGame()->GetWorld()->AddEntity(SWPrefabs::CreateProjectile(muzzlePos, 0, (muzzlePos - ownerPos) * m_initialVeloctiy + ownerVelocity, m_projectileSpeed + ownerVelocity.Length(), m_projectileTimer));
+			Game::GetGame()->GetActiveWorld()->AddEntity(SWPrefabs::CreateProjectile(muzzlePos, 0, (muzzlePos - ownerPos) * m_initialVeloctiy + ownerVelocity, m_projectileSpeed + ownerVelocity.Length(), m_projectileTimer));
 		}
 		m_shootingDelay -= dt;
 	}

@@ -18,14 +18,14 @@ namespace SWGame {
 		EntityManager* m_EntityManager;
 	public:
 		World();
-		~World();
-		void Init();
-		BaseEntity* CreateEntity();
-		BaseEntity* AddEntity(BaseEntity* ent);
+		virtual	~World();
+		virtual void Init();
+		virtual BaseEntity* CreateEntity();
+		virtual BaseEntity* AddEntity(BaseEntity* ent);
 		virtual void Update(float dt);
-		void GatherDraw(std::vector<sf::Drawable*>& drawables);
-		SystemsManager* GetSystems();
+		virtual void GatherDraw(std::vector<sf::Drawable*>& drawables);
+		virtual SystemsManager* GetSystems();
 	protected:
-		void UpdateEntities(float dt);
+		virtual void UpdateEntities(float dt);
 	};
 }

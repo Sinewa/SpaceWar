@@ -147,9 +147,11 @@
     <ClCompile Include="src\Core\Managers\Visual\RenderManager.cpp" />
     <ClCompile Include="src\Core\World.cpp" />
     <ClCompile Include="src\Entities\Base\BaseEntity.cpp" />
+    <ClCompile Include="src\Entities\Game\Asteroid.cpp" />
     <ClCompile Include="src\Entities\Projectile\Projectile.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Systems\Base\BaseSystem.cpp" />
+    <ClCompile Include="src\Systems\Game\AsteroidSystem.cpp" />
     <ClCompile Include="src\Systems\Physics\PhysicsSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,7 +159,10 @@
     <ClInclude Include="src\Components\Movement\ProjectileControlComponent.h" />
     <ClInclude Include="src\Components\Movement\BaseControllerComponent.h" />
     <ClInclude Include="src\Components\Movement\PlayerMovementControllerComponent.h" />
+    <ClInclude Include="src\Components\Physics\AsteroidPhysicsComponent.h" />
     <ClInclude Include="src\Components\Physics\PhysicsComponent.h" />
+    <ClInclude Include="src\Components\Physics\ProjectilePhysicsComponent.h" />
+    <ClInclude Include="src\Components\Physics\ShipPhysicsComponent.h" />
     <ClInclude Include="src\Components\Projectile\ShootingComponent.h" />
     <ClInclude Include="src\Components\Visual\SpriteComponent.h" />
     <ClInclude Include="src\Core\Game.h" />
@@ -166,14 +171,20 @@
     <ClInclude Include="src\Core\Managers\SystemsManager.h" />
     <ClInclude Include="src\Core\Managers\Visual\RenderManager.h" />
     <ClInclude Include="src\Core\Managers\Visual\TextureManager.h" />
+    <ClInclude Include="src\Core\Utils\Array.h" />
     <ClInclude Include="src\Core\Utils\Transformations.h" />
     <ClInclude Include="src\Core\Utils\Utils.h" />
     <ClInclude Include="src\Core\World.h" />
     <ClInclude Include="src\Entities\Base\BaseEntity.h" />
+    <ClInclude Include="src\Entities\Game\Asteroid.h" />
     <ClInclude Include="src\Entities\Projectile\Projectile.h" />
     <ClInclude Include="src\Prefabs\BasePrefab.h" />
     <ClInclude Include="src\Systems\Base\BaseSystem.h" />
+    <ClInclude Include="src\Systems\Game\AsteroidSystem.h" />
     <ClInclude Include="src\Systems\Physics\PhysicsSystem.h" />
+    <ClInclude Include="src\Worlds\GameWorld.h" />
+    <ClInclude Include="src\Worlds\InitWorld.h" />
+    <ClInclude Include="src\Worlds\MenuWorld.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

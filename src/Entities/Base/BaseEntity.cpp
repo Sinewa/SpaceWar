@@ -15,6 +15,7 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void BaseEntity::OnDelete() {
 		for (Component* comp : m_aComponents) {
+			comp->OnDelete(this);
 			delete comp;
 		}
 	}
@@ -37,6 +38,10 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void BaseEntity::SetFlags(EntityFlags flags) {
 		m_entityFlags.Set(flags);
+	}
+	//-----------------------------------------------------------
+	void BaseEntity::ClearFlag(EntityFlags flag) {
+		m_entityFlags.Clear(flag);
 	}
 	//-----------------------------------------------------------
 	void BaseEntity::AddComponent(Component* comp) {

@@ -51,8 +51,7 @@ namespace SWGame {
 	void PhysicsSystem::UnRegister(PhysicsComponent* comp) {
 		for (int i = 0; i < m_aPhysicsComps.size(); i++) {
 			if (m_aPhysicsComps[i] == comp) {
-				m_aPhysicsComps[i] = *m_aPhysicsComps.rbegin();
-				m_aPhysicsComps.pop_back();
+				m_aPhysicsComps.FastErase(i);
 				return;
 			}
 		}

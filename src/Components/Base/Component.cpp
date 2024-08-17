@@ -17,4 +17,8 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void Component::GatherDraw(std::vector<sf::Drawable*>& retVal) {
 	}
+	//-----------------------------------------------------------
+	void Component::OnDelete(BaseEntity* owner) {
+
+	}
 }

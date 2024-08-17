@@ -1,6 +1,7 @@
 #include "Game.h"
 
 #include <iostream>
+#include <cstdlib>
 
 #include <SFML/Graphics.hpp>
 
@@ -13,15 +14,14 @@
 namespace SWGame {
 	Game::Game() 
 		: m_window(new sf::RenderWindow(sf::VideoMode(800, 800), "SpaceWar", sf::Style::Close))
-		, m_ActiveWorld(new World())
+		, m_ActiveWorld(0)
 		, m_renderer(new RenderManager())
 		, m_textureManager(new TextureManager())
 		, m_inputManager(new InputManager())
+		, m_GameState(GameState::EInit)
 	{
 		m_inputManager->LoadInputs();
-		m_ActiveWorld->Init();
-
-
+		
 		auto circle = new sf::CircleShape(50.f);
 		circle->setOrigin(100.f, 100.f);
 		circle->setFillColor(sf::Color::Green);
@@ -29,7 +29,16 @@ namespace SWGame {
 	}
 	//-----------------------------------------------------------
 	Game::~Game() {
-		delete m_ActiveWorld;
+		for (World* world : m_registeredWorlds) {
+			delete world;
+		}
+	}
+	//-----------------------------------------------------------
+	void Game::Init() {
+	}
+	//-----------------------------------------------------------
+	void Game::RegisterWorld(World* world) {
+		m_registeredWorlds.push_back(world);
 	}
 	//-----------------------------------------------------------
 	void Game::Run() {
@@ -37,6 +46,9 @@ namespace SWGame {
 		sf::Clock clock;
 
 		std::vector<sf::Drawable*> drawables;
+		m_GameState = GameState::EMenu;
+
+		std::srand(clock.getElapsedTime().asMicroseconds());
 
 		while (m_window->isOpen()) {
 			sf::Event event;
@@ -50,12 +62,15 @@ namespace SWGame {
 			if (dt < 1 / 120.f)
 				continue;
 
+			if (dt > 1 / 30.f)
+				dt = 1 / 30.f;
+
 			m_inputManager->HandleInputs();
 
-			m_ActiveWorld->Update(dt);
+			GetActiveWorld()->Update(dt);
 
 			drawables.clear();
-			m_ActiveWorld->GatherDraw(drawables);
+			GetActiveWorld()->GatherDraw(drawables);
 			m_renderer->AppendDrawables(drawables);
 
 			m_window->clear();
@@ -65,8 +80,8 @@ namespace SWGame {
 		}
 	}
 	//-----------------------------------------------------------
-	World* Game::GetWorld() const {
-		return m_ActiveWorld;
+	World* Game::GetActiveWorld() const {
+		return m_registeredWorlds[m_ActiveWorld];
 	}
 	//-----------------------------------------------------------
 	InputManager* Game::GetInputManager() const {
@@ -84,6 +99,10 @@ namespace SWGame {
 	VecU Game::GetGameAreaSize() const {
 		auto size = m_window->getSize();
 		return VecU(size.x, size.y);
+	}
+	//-----------------------------------------------------------
+	GameState Game::GetGameState() const{
+		return m_GameState;
 	}
 	//-----------------------------------------------------------
 	Game* Game::GetGame() {

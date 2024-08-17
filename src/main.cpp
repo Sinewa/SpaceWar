@@ -9,6 +9,10 @@
 
 #include "src/Prefabs/BasePrefab.h"
 
+#include "src/Worlds/InitWorld.h"
+#include "src/Worlds/MenuWorld.h"
+#include "src/Worlds/GameWorld.h"
+
 void Cleanup() {
   //delete SWGame::Game::GetGame();
 }
@@ -17,9 +21,14 @@ void Cleanup() {
 int main() {
   SWGame::Game* game = SWGame::Game::GetGame();
   
-  SWGame::World* world = game->GetWorld();
+  game->RegisterWorld(new SWGame::InitWorld());
+  game->RegisterWorld(new SWGame::MenuWorld());
+  game->RegisterWorld(new SWGame::GameWorld());
+  
+  SWGame::World* world = game->GetActiveWorld();
+  world->Init();
 
-  world->AddEntity(SWPrefabs::CreateShip({ 0, 0 }, 0.f));
+  world->AddEntity(SWPrefabs::CreateShip({ 400, 400 }, 0.f));
   world->AddEntity(SWPrefabs::CreateAsteroid({ 100, 100 }, 1.f, { 1.f, 0.f }, 10.f));
   world->AddEntity(SWPrefabs::CreateAsteroid({ 100, 120 }, 1.f, { 1.f, 0.f }, 20.f));
   world->AddEntity(SWPrefabs::CreateAsteroid({ 100, 140 }, 1.f, { 1.f, 0.f }, 30.f));
