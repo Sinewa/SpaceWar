@@ -21,6 +21,7 @@ namespace SWGame {
 		float m_Size = 10.f;
 		VecF m_Offset;
 		EType m_Type = EType::Undef;
+		bool m_indestructible = false;
 	public:
 		PhysicsComponent(float size, VecF offset);
 		virtual ~PhysicsComponent();
@@ -28,5 +29,6 @@ namespace SWGame {
 		virtual void OnDelete(BaseEntity* owner) override;
 		EType GetType() const;
 		virtual void OnCollision(const PhysicsComponent* other);
+		void SetImmune(bool immune);
 	};
 }

@@ -2,6 +2,10 @@
 
 #include <vector>
 
+namespace sf {
+	class Drawable;
+}
+
 namespace SWGame {
 	class BaseSystem;
 
@@ -21,6 +25,8 @@ namespace SWGame {
 			}
 			return nullptr;
 		}
+
+		void GatherDraw(std::vector<sf::Drawable*>& retVal);
 
 		void AddSystem(BaseSystem* sys);
 

@@ -46,6 +46,7 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void World::GatherDraw(std::vector<sf::Drawable*>& drawables) {
 		m_EntityManager->GatherDraw(drawables);
+		m_SystemManager->GatherDraw(drawables);
 	}
 	//-----------------------------------------------------------
 	BaseEntity* World::CreateEntity() {
@@ -59,6 +60,11 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	SystemsManager* World::GetSystems() {
 		return m_SystemManager;
+	}
+	//-----------------------------------------------------------
+	void World::AddAndInitSystem(BaseSystem* sys) {
+		m_SystemManager->AddSystem(sys);
+		sys->Init(this);
 	}
 	//-----------------------------------------------------------
 }

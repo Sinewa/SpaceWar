@@ -8,9 +8,10 @@ namespace sf {
 
 namespace SWGame {
 	class BaseEntity;
-	class SystemsManager;
+	class BaseSystem;
 	class EntityManager;
 	class RenderManager;
+	class SystemsManager;
 
 	class World {
 	protected:
@@ -29,5 +30,7 @@ namespace SWGame {
 		virtual SystemsManager* GetSystems();
 	protected:
 		virtual void UpdateEntities(float dt);
+		void AddAndInitSystem(BaseSystem* sys);
+
 	};
 }

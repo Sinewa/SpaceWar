@@ -84,6 +84,9 @@
     <ClCompile Include="src\Worlds\MenuWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Systems\UI\TextSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\World.h">
@@ -174,6 +177,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Components\Physics\AsteroidPhysicsComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Managers\Visual\FontManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Systems\UI\TextSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

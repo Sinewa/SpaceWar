@@ -13,7 +13,14 @@ namespace SWGame {
 		}
 	}
 	//-----------------------------------------------------------
+	void SystemsManager::GatherDraw(std::vector<sf::Drawable*>& retVal) {
+		for (BaseSystem* sys : m_aSystems) {
+			sys->GatherDraw(retVal);
+		}
+	}
+	//-----------------------------------------------------------
 	void SystemsManager::AddSystem(BaseSystem* sys) {
 		m_aSystems.push_back(sys);
 	}
+	//-----------------------------------------------------------
 }

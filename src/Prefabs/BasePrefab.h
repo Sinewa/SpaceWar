@@ -53,4 +53,16 @@ namespace SWPrefabs {
 		projectile->Init(world);
 		return projectile;
 	}
+
+	static SWGame::BaseEntity* CreateSelector(SWGame::World* world, const SWGame::VecF& pos, float angle) {
+		SWGame::BaseEntity* ship = new SWGame::BaseEntity();
+		auto sprite = new SWGame::SpriteComponent("assets/Ship.png");
+		ship->AddComponent(sprite);
+		auto physics = new SWGame::PhysicsComponent(sprite->GetSize() / 2, sprite->GetOrigin());
+		physics->SetImmune(true);
+		ship->AddComponent(physics);
+		ship->SetTransform({ {pos.x + sprite->GetSize() / 2, pos.y + sprite->GetSize() / 2}, angle });
+		ship->Init(world);
+		return ship;
+	}
 }

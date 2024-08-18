@@ -12,6 +12,7 @@ namespace SWGame {
 
 	class World;
 	class RenderManager;
+	class FontManager;
 	class TextureManager;
 	class InputManager;
 
@@ -29,6 +30,7 @@ namespace SWGame {
 		sf::RenderWindow* m_window;
 		RenderManager* m_renderer;
 		TextureManager* m_textureManager;
+		FontManager* m_fontManager;
 		InputManager* m_inputManager;
 		std::vector<World*> m_registeredWorlds;
 		GameState m_GameState;
@@ -46,6 +48,7 @@ namespace SWGame {
 		World* GetActiveWorld() const;
 		InputManager* GetInputManager() const;
 		TextureManager* GetTextureManager() const;
+		FontManager* GetFontManager() const;
 		RenderManager* GetRenderer() const;
 
 		VecU GetGameAreaSize() const;

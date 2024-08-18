@@ -22,7 +22,7 @@ namespace SWGame {
 	void PhysicsComponent::Init(BaseEntity* owner){
 		Component::Init(owner);
 
-		auto* phySys = Game::GetGame()->GetActiveWorld()->GetSystems()->FindSystem<PhysicsSystem>();
+		auto* phySys = owner->GetWorld()->GetSystems()->FindSystem<PhysicsSystem>();
 		if (phySys)
 			phySys->Register(this);
 	}
@@ -30,13 +30,14 @@ namespace SWGame {
 	void PhysicsComponent::OnDelete(BaseEntity* owner) {
 		Component::OnDelete(owner);
 
-		auto* phySys = Game::GetGame()->GetActiveWorld()->GetSystems()->FindSystem<PhysicsSystem>();
+		auto* phySys = owner->GetWorld()->GetSystems()->FindSystem<PhysicsSystem>();
 		if (phySys)
 			phySys->UnRegister(this);
 	}
 	//-----------------------------------------------------------
 	void PhysicsComponent::OnCollision(const PhysicsComponent* other) {
-		
+		if (m_indestructible)
+			return;
 		m_pOwner->SetFlags(EntityFlags::EF_DELETE);
 		//m_pOwner->ClearFlag(EntityFlags::EF_ACTIVE);
 	}
@@ -45,4 +46,9 @@ namespace SWGame {
 		return m_Type;
 	}
 	//-----------------------------------------------------------
+	void PhysicsComponent::SetImmune(bool immune) {
+		m_indestructible = immune;
+	}
+	//-----------------------------------------------------------
+
 }

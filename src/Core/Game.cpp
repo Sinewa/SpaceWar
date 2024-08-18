@@ -8,6 +8,7 @@
 #include "src/Core/Managers/InputManager.h"
 #include "src/Core/Managers/Visual/RenderManager.h"
 #include "src/Core/Managers/Visual/TextureManager.h"
+#include "src/Core/Managers/Visual/FontManager.h"
 #include "src/Core/World.h"
 #include "src/Core/Utils/Transformations.h"
 
@@ -20,6 +21,7 @@ namespace SWGame {
 		: m_window(new sf::RenderWindow(sf::VideoMode(800, 800), "SpaceWar", sf::Style::Close))
 		, m_renderer(new RenderManager())
 		, m_textureManager(new TextureManager())
+		, m_fontManager(new FontManager())
 		, m_inputManager(new InputManager())
 		, m_GameState(GameState::EUninitialized)
 	{
@@ -107,6 +109,10 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	TextureManager* Game::GetTextureManager() const {
 		return m_textureManager;
+	}
+	//-----------------------------------------------------------
+	FontManager* Game::GetFontManager() const {
+		return m_fontManager;
 	}
 	//-----------------------------------------------------------
 	VecU Game::GetGameAreaSize() const {

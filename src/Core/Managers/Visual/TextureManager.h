@@ -2,6 +2,8 @@
 
 #include <unordered_map>
 #include <iostream>
+#include <string>
+
 #include <SFML/Graphics/Texture.hpp>
 
 namespace SWGame {
@@ -16,7 +18,7 @@ namespace SWGame {
 			
 			sf::Texture* tex = new sf::Texture();
 			if (!tex->loadFromFile(file)) {
-				std::cerr << "Could not load: " << file << " from file" << std::endl;
+				std::cerr << "Could not load texture: " << file << " from file" << std::endl;
 				delete tex;
 				return nullptr;
 			}
