@@ -4,10 +4,11 @@
 
 #include "src/Components/Base/Component.h"
 #include "src/Core/Utils/Transformations.h"
-
+#include "src/Core/World.h"
 
 namespace SWGame {
-	void BaseEntity::Init() {
+	void BaseEntity::Init(World* world) {
+		m_pWorld = world;
 		for (Component* comp : m_aComponents) {
 			comp->Init(this);
 		}
@@ -62,6 +63,10 @@ namespace SWGame {
 	//----------------------------------------------------------
 	const Transformation& BaseEntity::GetTransform() const {
 		return m_transform;
+	}
+	//----------------------------------------------------------
+	World* BaseEntity::GetWorld() const {
+		return m_pWorld;
 	}
 	//----------------------------------------------------------
 }

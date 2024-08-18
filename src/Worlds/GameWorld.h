@@ -4,6 +4,6 @@
 
 namespace SWGame {
 	class GameWorld : public World {
-
+		virtual void Load() override;
 	};
 }

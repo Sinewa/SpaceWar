@@ -153,6 +153,9 @@
     <ClCompile Include="src\Systems\Base\BaseSystem.cpp" />
     <ClCompile Include="src\Systems\Game\AsteroidSystem.cpp" />
     <ClCompile Include="src\Systems\Physics\PhysicsSystem.cpp" />
+    <ClCompile Include="src\Worlds\GameWorld.cpp" />
+    <ClCompile Include="src\Worlds\InitWorld.cpp" />
+    <ClCompile Include="src\Worlds\MenuWorld.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\Base\Component.h" />

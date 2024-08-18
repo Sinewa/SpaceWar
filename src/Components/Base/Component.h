@@ -8,6 +8,7 @@ namespace sf {
 
 namespace SWGame {
 	class BaseEntity;
+	class World;
 
 	class Component {
 	protected:
@@ -20,5 +21,7 @@ namespace SWGame {
 
 		virtual void Update(BaseEntity* owner, float dt);
 		virtual void GatherDraw(std::vector<sf::Drawable*>& retVal);
+
+		World* GetWorld() const;
 	};
 }

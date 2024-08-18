@@ -20,6 +20,7 @@ namespace SWGame {
 		World();
 		virtual	~World();
 		virtual void Init();
+		virtual void Load();
 		virtual BaseEntity* CreateEntity();
 		virtual BaseEntity* AddEntity(BaseEntity* ent);
 		virtual void Update(float dt);

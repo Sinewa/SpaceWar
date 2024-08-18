@@ -7,8 +7,9 @@
 
 namespace SWGame {
 	//-----------------------------------------------------------
-	AsteroidSystem::AsteroidSystem(int maxNumOfAsteroids) 
-	: m_iMaxNumberOfAsteroids(maxNumOfAsteroids)
+	AsteroidSystem::AsteroidSystem(int maxNumOfAsteroids)
+	: BaseSystem()
+	,	m_iMaxNumberOfAsteroids(maxNumOfAsteroids)
 	{
 
 	}
@@ -20,13 +21,10 @@ namespace SWGame {
 			return;
 		if (m_fDelayTimer < m_fDelay)
 			return;
-		if (m_fSpeedIncrement >= 20.f) {
-			m_fSpeedIncrement = 10.f;
-			m_iMaxNumberOfAsteroids++;
-		}
+
 		VecF pos(Random::GetRandomInt()%200-100, Random::GetRandomInt()%200-100);
 
-		auto asteroid = SWPrefabs::CreateAsteroid(pos, Random::GetRandomFloat01(), pos, 10.f + Random::GetRandomFloat01()*30.f+ m_fSpeedIncrement);
+		auto asteroid = SWPrefabs::CreateAsteroid(GetWorld(), pos, Random::GetRandomFloat01(), pos, 10.f + Random::GetRandomFloat01() * 30.f + m_fSpeedIncrement);
 		Register(asteroid);
 		Game::GetGame()->GetActiveWorld()->AddEntity(asteroid);
 	}

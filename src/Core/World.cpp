@@ -25,7 +25,11 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void World::Init() {
 		m_SystemManager->AddSystem(new PhysicsSystem());
-		m_SystemManager->AddSystem(new AsteroidSystem(5));
+		m_SystemManager->AddSystem(new AsteroidSystem(40));
+	}
+	//-----------------------------------------------------------
+	void World::Load() {
+
 	}
 	//-----------------------------------------------------------
 	void World::Update(float dt) {

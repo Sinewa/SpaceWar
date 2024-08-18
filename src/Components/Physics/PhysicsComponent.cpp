@@ -23,14 +23,16 @@ namespace SWGame {
 		Component::Init(owner);
 
 		auto* phySys = Game::GetGame()->GetActiveWorld()->GetSystems()->FindSystem<PhysicsSystem>();
-		phySys->Register(this);
+		if (phySys)
+			phySys->Register(this);
 	}
 	//-----------------------------------------------------------
 	void PhysicsComponent::OnDelete(BaseEntity* owner) {
 		Component::OnDelete(owner);
 
 		auto* phySys = Game::GetGame()->GetActiveWorld()->GetSystems()->FindSystem<PhysicsSystem>();
-		phySys->UnRegister(this);
+		if (phySys)
+			phySys->UnRegister(this);
 	}
 	//-----------------------------------------------------------
 	void PhysicsComponent::OnCollision(const PhysicsComponent* other) {

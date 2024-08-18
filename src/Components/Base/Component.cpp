@@ -21,4 +21,9 @@ namespace SWGame {
 	void Component::OnDelete(BaseEntity* owner) {
 
 	}
+	//-----------------------------------------------------------
+	World* Component::GetWorld() const {
+		return m_pOwner->GetWorld();
+	}
+	//-----------------------------------------------------------
 }

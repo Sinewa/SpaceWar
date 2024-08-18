@@ -46,7 +46,7 @@ namespace SWGame {
 		sf::Clock clock;
 
 		std::vector<sf::Drawable*> drawables;
-		m_GameState = GameState::EMenu;
+		
 
 		std::srand(clock.getElapsedTime().asMicroseconds());
 
@@ -81,7 +81,7 @@ namespace SWGame {
 	}
 	//-----------------------------------------------------------
 	World* Game::GetActiveWorld() const {
-		return m_registeredWorlds[m_ActiveWorld];
+		return m_registeredWorlds[m_GameState];
 	}
 	//-----------------------------------------------------------
 	InputManager* Game::GetInputManager() const {
@@ -103,6 +103,10 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	GameState Game::GetGameState() const{
 		return m_GameState;
+	}
+	//-----------------------------------------------------------
+	void Game::SetGameState(GameState state) {
+		m_GameState = state;
 	}
 	//-----------------------------------------------------------
 	Game* Game::GetGame() {

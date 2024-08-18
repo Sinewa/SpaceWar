@@ -11,6 +11,7 @@ namespace sf {
 namespace SWGame {
 
 	class Component;
+	class World;
 
 	enum EntityFlags
 	{
@@ -28,9 +29,10 @@ namespace SWGame {
 		std::vector<Component*> m_aComponents;
 		Flags<EntityFlags> m_entityFlags;
 		Transformation m_transform;
+		World* m_pWorld;
 
 	public:
-		virtual void Init();
+		virtual void Init(World* world);
 		virtual void OnDelete();
 		bool IsFlag(EntityFlags flag) const;
 		void SetFlags(EntityFlags flags);
@@ -43,7 +45,7 @@ namespace SWGame {
 		void SetTransform(const Transformation& transform);
 		const Transformation& GetTransform() const;
 
-
+		World* GetWorld() const;
 
 		/**
 		* Method for attaching Components to entity.

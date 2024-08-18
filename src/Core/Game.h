@@ -15,7 +15,7 @@ namespace SWGame {
 	class TextureManager;
 	class InputManager;
 
-	enum class GameState {
+	enum GameState {
 		EInit = 0,
 		EMenu,
 		EGame		
@@ -45,6 +45,7 @@ namespace SWGame {
 
 		VecU GetGameAreaSize() const;
 		GameState GetGameState() const;
+		void SetGameState(GameState state);
 		
 		void RegisterWorld(World* world);
 
