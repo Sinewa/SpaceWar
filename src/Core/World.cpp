@@ -23,9 +23,11 @@ namespace SWGame {
 		delete m_EntityManager;
 	}
 	//-----------------------------------------------------------
-	void World::Init() {
-		m_SystemManager->AddSystem(new PhysicsSystem());
-		m_SystemManager->AddSystem(new AsteroidSystem(40));
+	void World::OnInit() {
+		Load();
+	}
+	//-----------------------------------------------------------
+	void World::OnDeInit() {
 	}
 	//-----------------------------------------------------------
 	void World::Load() {

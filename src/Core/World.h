@@ -19,7 +19,8 @@ namespace SWGame {
 	public:
 		World();
 		virtual	~World();
-		virtual void Init();
+		virtual void OnInit();
+		virtual void OnDeInit();
 		virtual void Load();
 		virtual BaseEntity* CreateEntity();
 		virtual BaseEntity* AddEntity(BaseEntity* ent);

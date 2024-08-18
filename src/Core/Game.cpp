@@ -11,14 +11,17 @@
 #include "src/Core/World.h"
 #include "src/Core/Utils/Transformations.h"
 
+#include "src/Worlds/InitWorld.h"
+#include "src/Worlds/GameWorld.h"
+#include "src/Worlds/MenuWorld.h"
+
 namespace SWGame {
 	Game::Game() 
 		: m_window(new sf::RenderWindow(sf::VideoMode(800, 800), "SpaceWar", sf::Style::Close))
-		, m_ActiveWorld(0)
 		, m_renderer(new RenderManager())
 		, m_textureManager(new TextureManager())
 		, m_inputManager(new InputManager())
-		, m_GameState(GameState::EInit)
+		, m_GameState(GameState::EUninitialized)
 	{
 		m_inputManager->LoadInputs();
 		
@@ -26,6 +29,7 @@ namespace SWGame {
 		circle->setOrigin(100.f, 100.f);
 		circle->setFillColor(sf::Color::Green);
 		m_renderer->AddDiagDrawable(circle);
+		m_registeredWorlds.push_back(new World());
 	}
 	//-----------------------------------------------------------
 	Game::~Game() {
@@ -35,6 +39,13 @@ namespace SWGame {
 	}
 	//-----------------------------------------------------------
 	void Game::Init() {
+		Load();
+	}
+	//-----------------------------------------------------------
+	void Game::Load() {
+		RegisterWorld(new SWGame::InitWorld());
+		RegisterWorld(new SWGame::MenuWorld());
+		RegisterWorld(new SWGame::GameWorld());
 	}
 	//-----------------------------------------------------------
 	void Game::RegisterWorld(World* world) {
@@ -49,7 +60,7 @@ namespace SWGame {
 		
 
 		std::srand(clock.getElapsedTime().asMicroseconds());
-
+		RequestGameState(GameState::EInit);
 		while (m_window->isOpen()) {
 			sf::Event event;
 			while (m_window->pollEvent(event)) {
@@ -64,6 +75,8 @@ namespace SWGame {
 
 			if (dt > 1 / 30.f)
 				dt = 1 / 30.f;
+
+			HandleWorldChange();
 
 			m_inputManager->HandleInputs();
 
@@ -105,8 +118,17 @@ namespace SWGame {
 		return m_GameState;
 	}
 	//-----------------------------------------------------------
-	void Game::SetGameState(GameState state) {
-		m_GameState = state;
+	void Game::RequestGameState(GameState state) {
+		m_requestedGameState = state;
+	}
+	//-----------------------------------------------------------
+	void Game::HandleWorldChange() {
+		if (m_requestedGameState == m_GameState)
+			return;
+
+		m_registeredWorlds[m_GameState]->OnDeInit();
+		m_registeredWorlds[m_requestedGameState]->OnInit();
+		m_GameState = m_requestedGameState;
 	}
 	//-----------------------------------------------------------
 	Game* Game::GetGame() {

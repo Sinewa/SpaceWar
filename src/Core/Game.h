@@ -16,7 +16,8 @@ namespace SWGame {
 	class InputManager;
 
 	enum GameState {
-		EInit = 0,
+		EUninitialized = 0,
+		EInit,
 		EMenu,
 		EGame		
 	};
@@ -24,18 +25,22 @@ namespace SWGame {
 
 	class Game {
 	protected:
-		int m_ActiveWorld;
+		//int m_ActiveWorld;
 		sf::RenderWindow* m_window;
 		RenderManager* m_renderer;
 		TextureManager* m_textureManager;
 		InputManager* m_inputManager;
 		std::vector<World*> m_registeredWorlds;
 		GameState m_GameState;
+		GameState m_requestedGameState;
 	protected:
 		Game();
 		virtual ~Game();
+
+		void HandleWorldChange();
 	public:
 		virtual void Init();
+		virtual void Load();
 		virtual void Run();
 
 		World* GetActiveWorld() const;
@@ -45,7 +50,7 @@ namespace SWGame {
 
 		VecU GetGameAreaSize() const;
 		GameState GetGameState() const;
-		void SetGameState(GameState state);
+		void RequestGameState(GameState state);
 		
 		void RegisterWorld(World* world);
 
