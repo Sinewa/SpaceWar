@@ -13,7 +13,7 @@ namespace SWGame {
 	class SpriteComponent : public Component {
 		sf::Sprite* m_sprite;
 	public:
-		virtual void Init(BaseEntity* owner) override;
+		virtual void OnInit(BaseEntity* owner) override;
 		SpriteComponent();
 		SpriteComponent(const std::string& fileName);
 

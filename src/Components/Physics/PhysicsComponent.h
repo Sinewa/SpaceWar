@@ -25,7 +25,7 @@ namespace SWGame {
 	public:
 		PhysicsComponent(float size, VecF offset);
 		virtual ~PhysicsComponent();
-		virtual void Init(BaseEntity* owner) override;
+		virtual void OnInit(BaseEntity* owner) override;
 		virtual void OnDelete(BaseEntity* owner) override;
 		EType GetType() const;
 		virtual void OnCollision(const PhysicsComponent* other);

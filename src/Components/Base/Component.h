@@ -16,7 +16,7 @@ namespace SWGame {
 	public:
 		virtual ~Component() = default;
 
-		virtual void Init(BaseEntity* owner);
+		virtual void OnInit(BaseEntity* owner);
 		virtual void OnDelete(BaseEntity* owner);
 
 		virtual void Update(BaseEntity* owner, float dt);

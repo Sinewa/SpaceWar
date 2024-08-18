@@ -10,7 +10,7 @@ namespace SWGame {
 	void BaseEntity::Init(World* world) {
 		m_pWorld = world;
 		for (Component* comp : m_aComponents) {
-			comp->Init(this);
+			comp->OnInit(this);
 		}
 	}
 	//-----------------------------------------------------------

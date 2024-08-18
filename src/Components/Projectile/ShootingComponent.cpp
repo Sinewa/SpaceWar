@@ -27,8 +27,8 @@ namespace SWGame {
 		m_shootingDelay -= dt;
 	}
 	//-----------------------------------------------------------
-	void ShootingComponent::Init(BaseEntity* owner) {
-		Component::Init(owner);
+	void ShootingComponent::OnInit(BaseEntity* owner) {
+		Component::OnInit(owner);
 
 		m_pPlayerMovement = owner->FindComponent<PlayerMovementControllerComponent>();
 	}

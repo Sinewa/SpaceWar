@@ -20,8 +20,8 @@ namespace SWGame {
 		LoadTexture(fileName);
 	}
 	//-----------------------------------------------------------
-	void SpriteComponent::Init(BaseEntity* owner) {
-		Component::Init(owner);
+	void SpriteComponent::OnInit(BaseEntity* owner) {
+		Component::OnInit(owner);
 		owner->SetFlags(EntityFlags::EF_VISIBLE);
 	}
 	//-----------------------------------------------------------

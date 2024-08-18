@@ -139,6 +139,7 @@ namespace SWGame {
 
 		m_registeredWorlds[m_GameState]->OnDeInit();
 		m_registeredWorlds[m_requestedGameState]->OnInit();
+		m_registeredWorlds[m_requestedGameState]->Load();
 		m_GameState = m_requestedGameState;
 	}
 	//-----------------------------------------------------------

@@ -15,7 +15,7 @@ namespace SWGame {
 		float m_shootingDelay = 0.1f; 
 		float m_shootingDelayOriginal = 0.1;
 	public:
-		virtual void Init(BaseEntity* owner) override;
+		virtual void OnInit(BaseEntity* owner) override;
 		virtual void Update(BaseEntity* owner, float dt) override;
 	protected:
 		VecF GetLocalMuzzlePosition();

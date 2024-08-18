@@ -19,8 +19,8 @@ namespace SWGame {
 
 	}
 	//-----------------------------------------------------------
-	void PhysicsComponent::Init(BaseEntity* owner){
-		Component::Init(owner);
+	void PhysicsComponent::OnInit(BaseEntity* owner){
+		Component::OnInit(owner);
 
 		auto* phySys = owner->GetWorld()->GetSystems()->FindSystem<PhysicsSystem>();
 		if (phySys)

@@ -12,11 +12,12 @@
 namespace SWGame {
 	//-----------------------------------------------------------
 	void MenuWorld::OnInit() {
+		World::OnInit();
+
 		AddAndInitSystem(new AsteroidSystem(100));
 		AddAndInitSystem(new TextSystem());
 		AddAndInitSystem(new PhysicsSystem());
 
-		World::OnInit();
 	}
 	//-----------------------------------------------------------
 	void MenuWorld::Load() {

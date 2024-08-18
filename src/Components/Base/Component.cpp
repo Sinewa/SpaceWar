@@ -7,7 +7,7 @@
 #include "src/Entities/Base/BaseEntity.h"
 
 namespace SWGame {
-	void Component::Init(BaseEntity* owner) {
+	void Component::OnInit(BaseEntity* owner) {
 		m_pOwner = owner;
 	}
 	//-----------------------------------------------------------
