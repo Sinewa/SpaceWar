@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\Base\Component.cpp" />
+    <ClCompile Include="src\Components\Game\GameModeComponent.cpp" />
     <ClCompile Include="src\Components\Movement\ProjectileControlComponent.cpp" />
     <ClCompile Include="src\Components\Movement\BaseControllerComponent.cpp" />
     <ClCompile Include="src\Components\Movement\PlayerMovementControllerComponent.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Systems\Base\BaseSystem.cpp" />
     <ClCompile Include="src\Systems\Game\AsteroidSystem.cpp" />
+    <ClCompile Include="src\Systems\Game\GameModeSystem.cpp" />
     <ClCompile Include="src\Systems\Physics\PhysicsSystem.cpp" />
     <ClCompile Include="src\Systems\UI\TextSystem.cpp" />
     <ClCompile Include="src\Worlds\GameWorld.cpp" />
@@ -160,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\Base\Component.h" />
+    <ClInclude Include="src\Components\Game\GameModeComponent.h" />
     <ClInclude Include="src\Components\Movement\ProjectileControlComponent.h" />
     <ClInclude Include="src\Components\Movement\BaseControllerComponent.h" />
     <ClInclude Include="src\Components\Movement\PlayerMovementControllerComponent.h" />
@@ -186,6 +189,7 @@
     <ClInclude Include="src\Prefabs\BasePrefab.h" />
     <ClInclude Include="src\Systems\Base\BaseSystem.h" />
     <ClInclude Include="src\Systems\Game\AsteroidSystem.h" />
+    <ClInclude Include="src\Systems\Game\GameModeSystem.h" />
     <ClInclude Include="src\Systems\Physics\PhysicsSystem.h" />
     <ClInclude Include="src\Systems\UI\TextSystem.h" />
     <ClInclude Include="src\Worlds\GameWorld.h" />
