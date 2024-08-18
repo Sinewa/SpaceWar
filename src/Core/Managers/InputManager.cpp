@@ -20,26 +20,41 @@ namespace SWGame {
 		InsertInput(InputFlags::Fire, sf::Keyboard::Scancode::Space);
 		InsertInput(InputFlags::Back, sf::Keyboard::Scancode::Escape);
 		InsertInput(InputFlags::Confirm, sf::Keyboard::Scancode::Enter);
+		InsertInput(InputFlags::Confirm, sf::Keyboard::Scancode::Space);
 		InsertInput(InputFlags::Cancel, sf::Keyboard::Scancode::Escape);
 
 		InsertInput(InputFlags::DEBUG, sf::Keyboard::Scancode::Num0);
 	}
 	//-----------------------------------------------------------
 	void InputManager::HandleInputs() {
-		m_inputFlags.ClearAll();
+		m_justPressedFlags.ClearAll();
+		for (auto& input : m_aInputPairs) {
+			SetIfJustPressed(input.first, input.second);
+		}
 
+		m_pressedFlags.ClearAll();
 		for (auto& input : m_aInputPairs) {
 			SetIfPressed(input.first, input.second);
 		}
 	}
 	//-----------------------------------------------------------
 	bool InputManager::IsKeyPressed(InputFlags key) {
-		return m_inputFlags.IsSet(key);
+		return m_pressedFlags.IsSet(key);
+	}
+	//-----------------------------------------------------------
+	bool InputManager::WasKeyJustPressed(InputFlags key){
+		return m_justPressedFlags.IsSet(key);
 	}
 	//-----------------------------------------------------------
 	void InputManager::SetIfPressed(InputFlags keyFlag, sf::Keyboard::Scancode pKey) {
 		if (sf::Keyboard::isKeyPressed(pKey)) {
-			m_inputFlags.Set(keyFlag);
+			m_pressedFlags.Set(keyFlag);
+		}
+	}
+	//-----------------------------------------------------------
+	void InputManager::SetIfJustPressed(InputFlags keyFlag, sf::Keyboard::Scancode pKey) {
+		if (sf::Keyboard::isKeyPressed(pKey) && !IsKeyPressed(keyFlag)) {
+			m_justPressedFlags.Set(keyFlag);
 		}
 	}
 	//-----------------------------------------------------------

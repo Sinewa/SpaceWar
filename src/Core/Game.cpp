@@ -64,6 +64,10 @@ namespace SWGame {
 		std::srand(clock.getElapsedTime().asMicroseconds());
 		RequestGameState(GameState::EInit);
 		while (m_window->isOpen()) {
+
+			if (m_requestedGameState == GameState::EQuit)
+				break;
+
 			sf::Event event;
 			while (m_window->pollEvent(event)) {
 				if (event.type == sf::Event::Closed)
@@ -131,6 +135,7 @@ namespace SWGame {
 	void Game::HandleWorldChange() {
 		if (m_requestedGameState == m_GameState)
 			return;
+
 
 		m_registeredWorlds[m_GameState]->OnDeInit();
 		m_registeredWorlds[m_requestedGameState]->OnInit();

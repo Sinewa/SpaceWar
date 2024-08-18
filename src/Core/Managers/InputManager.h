@@ -22,14 +22,17 @@ namespace SWGame {
 	};
 
 	class InputManager {
-		Flags<InputFlags> m_inputFlags;
+		Flags<InputFlags> m_pressedFlags;
+		Flags<InputFlags> m_justPressedFlags;
 		std::vector<std::pair<InputFlags, sf::Keyboard::Scancode>> m_aInputPairs;
 	public:
 		void LoadInputs();
 		void HandleInputs();
 		bool IsKeyPressed(InputFlags key);
+		bool WasKeyJustPressed(InputFlags key);
 	protected:
 		void SetIfPressed(InputFlags keyFlag, sf::Keyboard::Scancode pKey);
+		void SetIfJustPressed(InputFlags keyFlag, sf::Keyboard::Scancode pKey);
 		void InsertInput(InputFlags keyFlag, sf::Keyboard::Scancode pKey);
 		void RemoveInput(InputFlags keyFlag, sf::Keyboard::Scancode pKey);
 	};

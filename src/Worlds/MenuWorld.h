@@ -9,10 +9,12 @@ namespace SWGame {
 	class MenuWorld : public World {
 	protected:
 
-		enum EMenuSelect{
+		enum EMenuSelect {
 			Play = 0,
 			Score,
-			Exit
+			Exit,
+			Last = Exit,
+			Count = Last + 1
 		};
 
 		const VecF m_selectorPositions[3] = {
@@ -27,5 +29,7 @@ namespace SWGame {
 		virtual void OnInit() override;
 		virtual void Load() override;
 		virtual void Update(float dt) override;
+	protected:
+		void HandleConfirmation();
 	};
 }

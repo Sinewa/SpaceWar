@@ -9,10 +9,11 @@
 namespace SWGame {
 	//-----------------------------------------------------------
 	void GameWorld::OnInit() {
-		World::OnInit();
 
 		AddAndInitSystem(new PhysicsSystem());
 		AddAndInitSystem(new AsteroidSystem(40));
+
+		World::OnInit();
 	}
 	//-----------------------------------------------------------
 	void GameWorld::Load() {

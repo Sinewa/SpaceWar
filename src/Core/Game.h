@@ -20,7 +20,8 @@ namespace SWGame {
 		EUninitialized = 0,
 		EInit,
 		EMenu,
-		EGame		
+		EGame,
+		EQuit
 	};
 
 

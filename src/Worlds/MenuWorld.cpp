@@ -37,10 +37,43 @@ namespace SWGame {
 		World::Update(dt);
 
 		auto inMan = Game::GetGame()->GetInputManager();
-		if (inMan->IsKeyPressed(InputFlags::Down)) {
-			m_eSelectedEntry = static_cast<EMenuSelect>((m_eSelectedEntry + 1) % 3);
+		if (inMan->WasKeyJustPressed(InputFlags::Down)) {
+			m_eSelectedEntry = static_cast<EMenuSelect>((m_eSelectedEntry + 1) % Count);
 		}
+		else if (inMan->WasKeyJustPressed(InputFlags::Up)) {
+			if (m_eSelectedEntry == 0) {
+				m_eSelectedEntry = EMenuSelect::Last;
+			}
+			else {
+				m_eSelectedEntry = static_cast<EMenuSelect>((m_eSelectedEntry - 1) % Count);
+			}
+		}
+		else if (inMan->WasKeyJustPressed(InputFlags::Confirm)) {
+			HandleConfirmation();
+		}
+
 
 		m_selector->SetTranslation(m_selectorPositions[m_eSelectedEntry]);
 	}
+	//-----------------------------------------------------------
+	void MenuWorld::HandleConfirmation() {
+		switch (m_eSelectedEntry)
+		{
+		case SWGame::MenuWorld::Play: {
+			Game::GetGame()->RequestGameState(GameState::EGame);
+			break;
+		}
+		case SWGame::MenuWorld::Score: {
+			break;
+		}
+		case SWGame::MenuWorld::Exit: {
+			Game::GetGame()->RequestGameState(GameState::EQuit);
+			break;
+		}
+		default:
+			break;
+		}
+	}
+	//-----------------------------------------------------------
+
 }
