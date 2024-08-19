@@ -5,6 +5,7 @@
 
 #include "src/Systems/Physics/PhysicsSystem.h"
 #include "src/Systems/Game/AsteroidSystem.h"
+#include "src/Systems/Game/GameModeSystem.h"
 
 namespace SWGame {
 	//-----------------------------------------------------------
@@ -12,6 +13,7 @@ namespace SWGame {
 		World::OnInit();
 
 		AddAndInitSystem(new PhysicsSystem());
+		AddAndInitSystem(new GameModeSystem());
 		AddAndInitSystem(new AsteroidSystem(40));
 
 	}

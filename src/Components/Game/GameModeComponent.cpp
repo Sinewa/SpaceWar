@@ -9,9 +9,13 @@
 #include "src/Systems/Game/GameModeSystem.h"
 
 namespace SWGame {
+	//-----------------------------------------------------------
 	void GameModeComponent::OnInit(BaseEntity* owner) {
 		auto* gmSys = owner->GetWorld()->GetSystems()->FindSystem<GameModeSystem>();
 		if (gmSys)
 			gmSys->Register(this);
 	}
+	//-----------------------------------------------------------
+	
+	//-----------------------------------------------------------
 }

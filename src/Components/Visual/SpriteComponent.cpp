@@ -53,6 +53,10 @@ namespace SWGame {
 		return m_sprite->getTexture()->getSize().x;
 	}
 	//-----------------------------------------------------------
+	sf::Sprite* SpriteComponent::GetSprite() {
+		return m_sprite;
+	}
+	//-----------------------------------------------------------
 	VecF SpriteComponent::GetOrigin() const {
 		auto origin = m_sprite->getOrigin();
 		return VecF(origin.x, origin.y);

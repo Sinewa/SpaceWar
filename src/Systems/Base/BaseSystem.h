@@ -13,6 +13,7 @@ namespace SWGame {
 		World* m_pWorld;
 	public:
 		virtual void Init(World* world);
+		virtual void Load() {}
 		virtual void Update(float dt) {}
 		virtual void OnDiag(float dt) {}
 

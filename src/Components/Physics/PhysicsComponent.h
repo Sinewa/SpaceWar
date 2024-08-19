@@ -19,6 +19,7 @@ namespace SWGame {
 
 	protected:
 		float m_Size = 10.f;
+		float m_Scale = 1.f;
 		VecF m_Offset;
 		EType m_Type = EType::Undef;
 		bool m_indestructible = false;
@@ -30,5 +31,7 @@ namespace SWGame {
 		EType GetType() const;
 		virtual void OnCollision(const PhysicsComponent* other);
 		void SetImmune(bool immune);
+		void SetScale(float size);
+		float GetSize() const;
 	};
 }

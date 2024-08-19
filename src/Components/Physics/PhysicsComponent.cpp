@@ -50,5 +50,13 @@ namespace SWGame {
 		m_indestructible = immune;
 	}
 	//-----------------------------------------------------------
+	void PhysicsComponent::SetScale(float size) {
+		m_Scale = size;
 
+	}
+	//-----------------------------------------------------------
+	float PhysicsComponent::GetSize() const {
+		return m_Size * m_Scale;
+	}
+	//-----------------------------------------------------------
 }

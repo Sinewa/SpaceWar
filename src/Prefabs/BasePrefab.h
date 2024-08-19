@@ -17,7 +17,7 @@
 
 namespace SWPrefabs {
 	static SWGame::BaseEntity* CreateShip(SWGame::World* world, const SWGame::VecF& pos, float angle) {
-		SWGame::BaseEntity* ship = new SWGame::BaseEntity();
+		SWGame::Ship* ship = new SWGame::Ship();
     ship->AddComponent(new SWGame::PlayerMovementControllerComponent());
 		auto sprite = new SWGame::SpriteComponent("assets/Ship.png");
     ship->AddComponent(sprite);

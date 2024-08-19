@@ -32,7 +32,7 @@ namespace SWGame {
 		if (m_bDebugActive) {
 			auto renderer = Game::GetGame()->GetRenderer();
 			for (auto& Pcomp : m_aPhysicsComps) {
-				auto circle = new sf::CircleShape(Pcomp->m_Size);
+				auto circle = new sf::CircleShape(Pcomp->GetSize());
 				auto pos = Pcomp->m_pOwner->GetTranslation() - Pcomp->m_Offset;
 				
 				circle->setPosition(pos.x, pos.y);
@@ -61,7 +61,7 @@ namespace SWGame {
 		auto lpos = lpc->m_pOwner->GetTranslation() - lpc->m_Offset;
 		auto rpos = rpc->m_pOwner->GetTranslation() - rpc->m_Offset;
 
-		if ((lpos - rpos).LengthSquared() < (lpc->m_Size + rpc->m_Size) * (lpc->m_Size + rpc->m_Size))
+		if ((lpos - rpos).LengthSquared() < (lpc->GetSize() + rpc->GetSize()) * (lpc->GetSize() + rpc->GetSize()))
 			return true;
 		return false;
 	}

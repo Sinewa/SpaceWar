@@ -4,6 +4,9 @@
 #include "src/Core/Utils/Utils.h"
 #include "src/Core/Game.h"
 #include "src/Core/World.h"
+#include "src/Core/Managers/SystemsManager.h"
+
+#include "src/Systems/Game/GameModeSystem.h"
 
 namespace SWGame {
 	//-----------------------------------------------------------
@@ -14,19 +17,30 @@ namespace SWGame {
 
 	}
 	//-----------------------------------------------------------
+	void AsteroidSystem::Init(World* world) {
+		BaseSystem::Init(world);
+
+		m_gmSys = GetWorld()->GetSystems()->FindSystem<GameModeSystem>();
+	}
+	//-----------------------------------------------------------
 	void AsteroidSystem::Update(float dt) {
 
 		m_fDelayTimer += dt;
-		if (m_aAsteroids.size() >= m_iMaxNumberOfAsteroids)
+		Level level;
+		if (m_gmSys)
+			level = m_gmSys->GetCurrentLevel();
+
+		if (m_aAsteroids.size() >= (m_gmSys ? level.m_asteroidMax : m_iMaxNumberOfAsteroids))
 			return;
 		if (m_fDelayTimer < m_fDelay)
 			return;
 
 		VecF pos(Random::GetRandomInt()%200-100, Random::GetRandomInt()%200-100);
 
-		auto asteroid = SWPrefabs::CreateAsteroid(GetWorld(), pos, Random::GetRandomFloat01(), pos, 10.f + Random::GetRandomFloat01() * 30.f + m_fSpeedIncrement);
+		auto asteroid = SWPrefabs::CreateAsteroid(GetWorld(), pos, Random::GetRandomFloat01(), pos, level.m_asteroidSpeed + Random::GetRandomFloat01() * 30.f + level.m_asteroidSpeed);
+		asteroid->SetSize(level.m_asteroidMaxSize);
 		Register(asteroid);
-		Game::GetGame()->GetActiveWorld()->AddEntity(asteroid);
+		GetWorld()->AddEntity(asteroid);
 	}
 	//-----------------------------------------------------------
 	void AsteroidSystem::Register(Asteroid* asteroid) {

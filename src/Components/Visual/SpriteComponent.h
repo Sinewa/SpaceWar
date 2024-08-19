@@ -11,6 +11,7 @@ namespace sf {
 
 namespace SWGame {
 	class SpriteComponent : public Component {
+	protected:
 		sf::Sprite* m_sprite;
 	public:
 		virtual void OnInit(BaseEntity* owner) override;
@@ -21,6 +22,7 @@ namespace SWGame {
 		virtual void GatherDraw(std::vector<sf::Drawable*>& retVal) override;
 
 		unsigned int GetSize() const;
+		sf::Sprite* GetSprite();
 		VecF GetOrigin() const;
 	protected:
 		bool LoadTexture(const std::string& fileName);

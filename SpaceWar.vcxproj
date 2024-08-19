@@ -149,6 +149,7 @@
     <ClCompile Include="src\Core\World.cpp" />
     <ClCompile Include="src\Entities\Base\BaseEntity.cpp" />
     <ClCompile Include="src\Entities\Game\Asteroid.cpp" />
+    <ClCompile Include="src\Entities\Game\Ship.cpp" />
     <ClCompile Include="src\Entities\Projectile\Projectile.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Systems\Base\BaseSystem.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="src\Core\World.h" />
     <ClInclude Include="src\Entities\Base\BaseEntity.h" />
     <ClInclude Include="src\Entities\Game\Asteroid.h" />
+    <ClInclude Include="src\Entities\Game\Ship.h" />
     <ClInclude Include="src\Entities\Projectile\Projectile.h" />
     <ClInclude Include="src\Prefabs\BasePrefab.h" />
     <ClInclude Include="src\Systems\Base\BaseSystem.h" />

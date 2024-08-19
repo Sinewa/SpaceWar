@@ -64,6 +64,7 @@ namespace SWGame {
 	void World::AddAndInitSystem(BaseSystem* sys) {
 		m_SystemManager->AddSystem(sys);
 		sys->Init(this);
+		sys->Load();
 	}
 	//-----------------------------------------------------------
 }
