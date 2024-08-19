@@ -48,8 +48,11 @@ namespace SWGame {
 	}
 	//-----------------------------------------------------------
 	bool GameModeSystem::ProgressLevels() {
-		if (m_iCurrentLevel < m_aLevels.size() - 1)
+		if (m_iCurrentLevel < m_aLevels.size() - 1) {
 			m_iCurrentLevel++;
+			return true;
+		}
+		return false;
 	}
 	//-----------------------------------------------------------
 
