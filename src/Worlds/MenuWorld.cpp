@@ -13,11 +13,16 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void MenuWorld::OnInit() {
 		World::OnInit();
-
 		AddAndInitSystem(new AsteroidSystem(100));
 		AddAndInitSystem(new TextSystem());
 		AddAndInitSystem(new PhysicsSystem());
 
+	}
+	//-----------------------------------------------------------
+	void MenuWorld::ReInit() {
+		World::ReInit();
+
+		m_eSelectedEntry = EMenuSelect::Play;
 	}
 	//-----------------------------------------------------------
 	void MenuWorld::Load() {

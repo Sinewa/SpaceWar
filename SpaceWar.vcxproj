@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\Base\Component.cpp" />
+    <ClCompile Include="src\Components\Game\DamageComponent.cpp" />
     <ClCompile Include="src\Components\Game\GameModeComponent.cpp" />
     <ClCompile Include="src\Components\Movement\ProjectileControlComponent.cpp" />
     <ClCompile Include="src\Components\Movement\BaseControllerComponent.cpp" />
@@ -163,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\Base\Component.h" />
+    <ClInclude Include="src\Components\Game\DamageComponent.h" />
     <ClInclude Include="src\Components\Game\GameModeComponent.h" />
     <ClInclude Include="src\Components\Movement\ProjectileControlComponent.h" />
     <ClInclude Include="src\Components\Movement\BaseControllerComponent.h" />

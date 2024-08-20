@@ -21,7 +21,8 @@ namespace SWGame {
 		World();
 		virtual	~World();
 		virtual void OnInit();
-		virtual void OnDeInit();
+		virtual void ReInit();
+		virtual void DeInit();
 		virtual void Load();
 		virtual BaseEntity* CreateEntity();
 		virtual BaseEntity* AddEntity(BaseEntity* ent);

@@ -13,12 +13,12 @@ namespace SWGame{
 		int m_iMaxNumberOfAsteroids = 20;
 		float m_fDelay = 2.f;
 		float m_fDelayTimer = 2.f;
-		float m_fSpeedIncrement = 0.f;
 		Array<Asteroid*> m_aAsteroids;
 		GameModeSystem* m_gmSys;
 	public:
 		AsteroidSystem(int maxNumOfAsteroids);
 		virtual void Init(World* world);
+		virtual void ReInit();
 		virtual void Update(float dt) override;
 		void Register(Asteroid* asteroid);
 		void UnRegister(Asteroid* asteroid);

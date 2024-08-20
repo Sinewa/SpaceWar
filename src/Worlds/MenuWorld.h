@@ -27,6 +27,7 @@ namespace SWGame {
 		BaseEntity* m_selector;
 	public:
 		virtual void OnInit() override;
+		virtual void ReInit() override;
 		virtual void Load() override;
 		virtual void Update(float dt) override;
 	protected:

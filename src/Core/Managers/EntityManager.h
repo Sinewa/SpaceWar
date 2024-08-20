@@ -18,5 +18,6 @@ namespace SWGame {
 		void UpdateEntities(float dt);
 		void GatherDraw(std::vector<sf::Drawable*>& drawables);
 		BaseEntity* AddEntity(BaseEntity* ent);
+		void Clear();
 	};
 }

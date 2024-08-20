@@ -23,6 +23,13 @@ namespace SWGame {
 		m_gmSys = GetWorld()->GetSystems()->FindSystem<GameModeSystem>();
 	}
 	//-----------------------------------------------------------
+	void AsteroidSystem::ReInit() {
+
+		for (int i = 0; i < m_aAsteroids.size(); i++) {
+			m_aAsteroids[i]->SetFlags(EntityFlags::EF_DELETE);
+		}
+	}
+	//-----------------------------------------------------------
 	void AsteroidSystem::Update(float dt) {
 
 		m_fDelayTimer += dt;
@@ -50,7 +57,6 @@ namespace SWGame {
 	void AsteroidSystem::UnRegister(Asteroid* asteroid) {
 		for (int i = 0; i < m_aAsteroids.size(); i++) {
 			if (m_aAsteroids[i] == asteroid) {
-				m_fSpeedIncrement += 1.f;
 				m_aAsteroids.FastErase(i);
 			}
 		}

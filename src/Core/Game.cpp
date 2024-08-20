@@ -52,6 +52,8 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void Game::RegisterWorld(World* world) {
 		m_registeredWorlds.push_back(world);
+		world->OnInit();
+		world->Load();
 	}
 	//-----------------------------------------------------------
 	void Game::Run() {
@@ -136,10 +138,9 @@ namespace SWGame {
 		if (m_requestedGameState == m_GameState)
 			return;
 
-
-		m_registeredWorlds[m_GameState]->OnDeInit();
-		m_registeredWorlds[m_requestedGameState]->OnInit();
-		m_registeredWorlds[m_requestedGameState]->Load();
+		m_registeredWorlds[m_GameState]->DeInit();
+		m_registeredWorlds[m_requestedGameState]->ReInit();
+		
 		m_GameState = m_requestedGameState;
 	}
 	//-----------------------------------------------------------

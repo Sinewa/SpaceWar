@@ -36,4 +36,8 @@ namespace SWGame {
 		physics->SetScale(size);
 		m_size = size;
 	}
+	//-----------------------------------------------------------
+	void Asteroid::OnHit() {
+
+	}
 }

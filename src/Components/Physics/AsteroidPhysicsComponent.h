@@ -12,8 +12,10 @@ namespace SWGame {
 
 		AsteroidPhysicsComponent(float size, VecF offset) : PhysicsComponent(size, offset) { m_Type = EType::Asteroid; }
 		virtual void OnCollision(const PhysicsComponent* other) override {
-			if (other->GetType() != EType::Asteroid)
-				PhysicsComponent::OnCollision(other); 
+			if (other->GetType() != EType::Asteroid) {
+				static_cast<Asteroid*>(m_pOwner)->OnHit();
+				PhysicsComponent::OnCollision(other);
+			}
 		}
 	};
 }

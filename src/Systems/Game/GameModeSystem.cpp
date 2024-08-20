@@ -55,5 +55,11 @@ namespace SWGame {
 		return false;
 	}
 	//-----------------------------------------------------------
+	void GameModeSystem::ReInit() {
+		m_iCurrentScore = 0;
+		m_iCurrentLevel = 0;
+		m_iPlayerLifes = m_InitPlayerLives;
+	}
+	//-----------------------------------------------------------
 
 }
