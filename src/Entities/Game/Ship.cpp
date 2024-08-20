@@ -8,9 +8,8 @@ namespace SWGame {
 	void Ship::OnDelete() {
 		BaseEntity::OnDelete();
 
-		Destroy();
 	}
-	
+	//-----------------------------------------------------------
 	void Ship::Destroy() {
 		auto gmSys = GetWorld()->GetSystems()->FindSystem<GameModeSystem>();
 		if (!gmSys)

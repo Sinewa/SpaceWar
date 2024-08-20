@@ -76,8 +76,11 @@ namespace SWGame {
 					m_window->close();
 			}
 
+			if (!m_window->hasFocus())
+				continue;
+
 			dt += clock.restart().asSeconds();
-			std::cout << dt << std::endl;
+			//std::cout << dt << std::endl;
 			if (dt < 1 / 120.f)
 				continue;
 
@@ -85,7 +88,6 @@ namespace SWGame {
 				dt = 1 / 30.f;
 
 			HandleWorldChange();
-
 			m_inputManager->HandleInputs();
 
 			GetActiveWorld()->Update(dt);

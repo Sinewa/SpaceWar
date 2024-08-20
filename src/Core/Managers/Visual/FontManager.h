@@ -10,7 +10,7 @@ namespace SWGame {
 	class FontManager {
 	protected:
 		std::unordered_map<std::string, sf::Font*> m_Fonts;
-		const char* m_defaultFontName = "assets/Fonts/Angora/Angora-1G3BB.otf";
+		const char* m_defaultFontName = "assets/Fonts/Sterion/Sterion-BLLld.ttf";
 	public:
 		sf::Font* GetDefaultFont() {
 			return GetFont(m_defaultFontName);

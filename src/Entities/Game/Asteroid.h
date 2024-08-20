@@ -9,6 +9,5 @@ namespace SWGame {
 	public:
 		virtual void OnDelete() override;
 		void SetSize(float size);
-		void OnHit();
 	};
 }

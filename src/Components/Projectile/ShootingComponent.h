@@ -14,11 +14,15 @@ namespace SWGame {
 		float m_projectileTimer = 3.f; //seconds
 		float m_shootingDelay = 0.1f; 
 		float m_shootingDelayOriginal = 0.1;
+
+		VecF m_MuzzlePos;
 	public:
+		ShootingComponent(VecF muzzlePos);
+
 		virtual void OnInit(BaseEntity* owner) override;
 		virtual void Update(BaseEntity* owner, float dt) override;
 	protected:
-		VecF GetLocalMuzzlePosition();
+		const VecF& GetLocalMuzzlePosition();
 		VecF GetWorldMuzzlePosition();
 	};
 }

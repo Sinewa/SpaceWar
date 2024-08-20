@@ -11,6 +11,9 @@
 #include "src/Components/Physics/ProjectilePhysicsComponent.h"
 #include "src/Components/Physics/AsteroidPhysicsComponent.h"
 #include "src/Components/Projectile/ShootingComponent.h"
+#include "src/Components/Game/DamageComponent.h"
+#include "src/Components/Game/PlayerDamageComponent.h"
+#include "src/Components/Game/GameModeComponent.h"
 
 #include "src/Core/World.h"
 #include "src/Core/Utils/Transformations.h"
@@ -22,7 +25,9 @@ namespace SWPrefabs {
 		auto sprite = new SWGame::SpriteComponent("assets/Ship.png");
     ship->AddComponent(sprite);
 		ship->AddComponent(new SWGame::ShipPhysicsComponent(sprite->GetSize()/2, sprite->GetOrigin()));
-		ship->AddComponent(new SWGame::ShootingComponent());
+		ship->AddComponent(new SWGame::ShootingComponent({0, -20}));
+		ship->AddComponent(new SWGame::GameModeComponent());
+		ship->AddComponent(new SWGame::PlayerDamageComponent());
 		ship->SetTransform({ pos, angle });
 		ship->Init(world);
 		return ship;
@@ -35,6 +40,7 @@ namespace SWPrefabs {
 		auto sprite = new SWGame::SpriteComponent("assets/Asteroid.png");
 		asteroid->AddComponent(sprite);
 		asteroid->AddComponent(new SWGame::AsteroidPhysicsComponent(sprite->GetSize()/2, sprite->GetOrigin()));
+		asteroid->AddComponent(new SWGame::DamageComponent());
 		asteroid->SetTransform({ pos, angle });
 		asteroid->Init(world);
 		return asteroid;
@@ -48,7 +54,7 @@ namespace SWPrefabs {
 		projectile->AddComponent(projComp);
 		auto sprite = new SWGame::SpriteComponent("assets/Projectile.png");
 		projectile->AddComponent(sprite);
-		projectile->AddComponent(new SWGame::ProjectilePhysicsComponent(sprite->GetSize()/2, sprite->GetOrigin()));
+		projectile->AddComponent(new SWGame::ProjectilePhysicsComponent(sprite->GetSize() / 2, {0,0}/*sprite->GetOrigin()*/));
 		projectile->SetTransform({ pos, angle });
 		projectile->Init(world);
 		return projectile;

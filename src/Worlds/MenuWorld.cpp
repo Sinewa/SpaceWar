@@ -27,11 +27,11 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void MenuWorld::Load() {
 		auto textSys = m_SystemManager->FindSystem<TextSystem>();
-		textSys->RegisterPermanentText("SpaceWar the Game", { 170, 50 });
+		textSys->RegisterText("SpaceWar the Game", { 170, 50 });
 		
-		textSys->RegisterPermanentText("Play", { 350, 350 });
-		textSys->RegisterPermanentText("Score", { 350, 400 });
-		textSys->RegisterPermanentText("Quit", { 350, 450 });
+		textSys->RegisterText("Play", { 350, 350 });
+		//textSys->RegisterText("Score", { 350, 400 });
+		textSys->RegisterText("Quit", { 350, 450 });
 
 		m_eSelectedEntry = EMenuSelect::Play;
 
@@ -69,9 +69,9 @@ namespace SWGame {
 			Game::GetGame()->RequestGameState(GameState::EGame);
 			break;
 		}
-		case SWGame::MenuWorld::Score: {
-			break;
-		}
+		//case SWGame::MenuWorld::Score: {
+		//	break;
+		//}
 		case SWGame::MenuWorld::Exit: {
 			Game::GetGame()->RequestGameState(GameState::EQuit);
 			break;

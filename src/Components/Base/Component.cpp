@@ -26,4 +26,8 @@ namespace SWGame {
 		return m_pOwner->GetWorld();
 	}
 	//-----------------------------------------------------------
+	BaseEntity* Component::GetOwner() const {
+		return m_pOwner;
+	}
+	//-----------------------------------------------------------
 }

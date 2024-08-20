@@ -10,6 +10,7 @@
 
 #include "src/Components/Visual/SpriteComponent.h"
 #include "src/Components/Physics/AsteroidPhysicsComponent.h"
+#include "src/Components/Game/DamageComponent.h"
 
 namespace SWGame {
 	//-----------------------------------------------------------
@@ -29,15 +30,14 @@ namespace SWGame {
 	}
 	//-----------------------------------------------------------
 	void Asteroid::SetSize(float size) {
-		auto sprite = FindComponent<SpriteComponent>();
-		auto physics = FindComponent<AsteroidPhysicsComponent>();
+		if (auto sprite = FindComponent<SpriteComponent>())
+			sprite->GetSprite()->setScale(size, size);
 
-		sprite->GetSprite()->setScale(size, size);
-		physics->SetScale(size);
+		if (auto physics = FindComponent<AsteroidPhysicsComponent>())
+			physics->SetScale(size);
+
+		if (auto damage = FindComponent<DamageComponent>())
+			damage->SetHP(size);
 		m_size = size;
-	}
-	//-----------------------------------------------------------
-	void Asteroid::OnHit() {
-
 	}
 }

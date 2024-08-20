@@ -24,7 +24,7 @@ namespace SWGame {
 	void InitWorld::Load() {
 		World::Load();
 
-		m_SystemManager->FindSystem<TextSystem>()->RegisterPermanentText("SpaceWar the Game", {170, 400}, { 31, 53, 242 });
+		m_SystemManager->FindSystem<TextSystem>()->RegisterText("SpaceWar the Game", {170, 400}, { 31, 53, 242 });
 	}
 	//-----------------------------------------------------------
 	void InitWorld::Update(float dt) {

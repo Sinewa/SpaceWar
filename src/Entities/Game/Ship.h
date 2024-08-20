@@ -8,6 +8,6 @@ namespace SWGame {
 	public:
 		virtual void OnDelete() override;
 
-		void Destroy();
+		virtual void Destroy() override;
 	};
 }

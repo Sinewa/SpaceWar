@@ -33,6 +33,7 @@ namespace SWGame {
 
 	public:
 		virtual void Init(World* world);
+		virtual void Destroy();
 		virtual void OnDelete();
 		bool IsFlag(EntityFlags flag) const;
 		void SetFlags(EntityFlags flags);

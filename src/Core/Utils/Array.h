@@ -6,7 +6,7 @@ namespace SWGame {
 	template<typename T>
 	class Array : public std::vector<T> {
 	public:
-		void FastErase(std::vector<T>::size_type n) {
+		void FastErase(std::size_t n) {
 			if (n < 0 || n > std::vector<T>::size() - 1) {
 				return;
 			}

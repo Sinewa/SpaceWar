@@ -14,8 +14,8 @@ namespace SWGame {
 		InsertInput(InputFlags::Right, sf::Keyboard::Scancode::D);
 		InsertInput(InputFlags::Down, sf::Keyboard::Scancode::S);
 
-		InsertInput(InputFlags::RotateL, sf::Keyboard::Scancode::Q);
-		InsertInput(InputFlags::RotateR, sf::Keyboard::Scancode::E);
+		InsertInput(InputFlags::RotateL, sf::Keyboard::Scancode::A);
+		InsertInput(InputFlags::RotateR, sf::Keyboard::Scancode::D);
 		
 		InsertInput(InputFlags::Fire, sf::Keyboard::Scancode::Space);
 		InsertInput(InputFlags::Back, sf::Keyboard::Scancode::Escape);
@@ -28,6 +28,7 @@ namespace SWGame {
 	//-----------------------------------------------------------
 	void InputManager::HandleInputs() {
 		m_justPressedFlags.ClearAll();
+
 		for (auto& input : m_aInputPairs) {
 			SetIfJustPressed(input.first, input.second);
 		}

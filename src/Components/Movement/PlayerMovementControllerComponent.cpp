@@ -15,6 +15,8 @@ namespace SWGame {
 		InputManager* inputs = Game::GetGame()->GetInputManager();
 		if (inputs->IsKeyPressed(InputFlags::Up))
 			m_vVelocity -= GetFrontVector() * m_fAcceleration * dt;
+		else
+			m_vVelocity -= GetFrontVector() * m_fConstantAcceleration * dt;
 		if (inputs->IsKeyPressed(InputFlags::Down)) {
 			m_vVelocity += GetFrontVector() * m_fAcceleration * dt;
 			if (m_vVelocity.Length() < 5.f)

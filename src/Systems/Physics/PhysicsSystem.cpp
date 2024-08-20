@@ -33,7 +33,10 @@ namespace SWGame {
 			auto renderer = Game::GetGame()->GetRenderer();
 			for (auto& Pcomp : m_aPhysicsComps) {
 				auto circle = new sf::CircleShape(Pcomp->GetSize());
-				auto pos = Pcomp->m_pOwner->GetTranslation() - Pcomp->m_Offset;
+				
+				auto pos = Pcomp->m_pOwner->GetTranslation();
+				
+				circle->setOrigin(Pcomp->GetSize() / 2, Pcomp->GetSize() / 2);
 				
 				circle->setPosition(pos.x, pos.y);
 				//circle->setRadius(Pcomp->m_Size);
@@ -58,10 +61,10 @@ namespace SWGame {
 	}
 	//-----------------------------------------------------------
 	bool PhysicsSystem::CheckCollision(PhysicsComponent* lpc, PhysicsComponent* rpc) {
-		auto lpos = lpc->m_pOwner->GetTranslation() - lpc->m_Offset;
-		auto rpos = rpc->m_pOwner->GetTranslation() - rpc->m_Offset;
+		auto lpos = lpc->m_pOwner->GetTranslation() ;
+		auto rpos = rpc->m_pOwner->GetTranslation() ;
 
-		if ((lpos - rpos).LengthSquared() < (lpc->GetSize() + rpc->GetSize()) * (lpc->GetSize() + rpc->GetSize()))
+		if ((lpos - rpos).Length() < (lpc->GetSize() + rpc->GetSize()) )
 			return true;
 		return false;
 	}

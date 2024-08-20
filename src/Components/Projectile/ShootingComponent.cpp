@@ -11,6 +11,10 @@
 
 namespace SWGame {
 	//-----------------------------------------------------------
+	ShootingComponent::ShootingComponent(VecF muzzlePos) : m_MuzzlePos(muzzlePos){
+
+	}
+	//-----------------------------------------------------------
 	void ShootingComponent::Update(BaseEntity* owner, float dt) {
 		Component::Update(owner, dt);
 
@@ -33,13 +37,13 @@ namespace SWGame {
 		m_pPlayerMovement = owner->FindComponent<PlayerMovementControllerComponent>();
 	}
 	//-----------------------------------------------------------
-	VecF ShootingComponent::GetLocalMuzzlePosition() {
-		return { 0, -20 };
+	const VecF& ShootingComponent::GetLocalMuzzlePosition() {
+		return m_MuzzlePos;
 	}
 	//-----------------------------------------------------------
 	VecF ShootingComponent::GetWorldMuzzlePosition() {
 		auto ownerTrans= m_pOwner->GetTransform();
-		auto muzzleLPos = GetLocalMuzzlePosition();
+		const auto& muzzleLPos = GetLocalMuzzlePosition();
 		
 		float sRot = sinf(ToRadians(ownerTrans.m_rotation));
 		float cRot = cosf(ToRadians(ownerTrans.m_rotation));

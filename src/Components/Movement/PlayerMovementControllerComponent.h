@@ -8,7 +8,8 @@ namespace SWGame {
 
 	class PlayerMovementControllerComponent : public BaseControllerComponent {
 		VecF m_vVelocity;
-		float m_fAcceleration = 50.f;
+		float m_fAcceleration = 100.f;
+		float m_fConstantAcceleration = 10.f;
 	public:
 		virtual void Update(BaseEntity* owner, float dt) override;
 		const VecF& GetVelocity() const;

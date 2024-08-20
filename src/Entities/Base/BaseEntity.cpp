@@ -14,6 +14,10 @@ namespace SWGame {
 		}
 	}
 	//-----------------------------------------------------------
+	void BaseEntity::Destroy() {
+		SetFlags(EF_DELETE);
+	}
+	//-----------------------------------------------------------
 	void BaseEntity::OnDelete() {
 		for (Component* comp : m_aComponents) {
 			comp->OnDelete(this);

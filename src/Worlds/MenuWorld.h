@@ -11,7 +11,7 @@ namespace SWGame {
 
 		enum EMenuSelect {
 			Play = 0,
-			Score,
+			//Score,
 			Exit,
 			Last = Exit,
 			Count = Last + 1
@@ -19,7 +19,7 @@ namespace SWGame {
 
 		const VecF m_selectorPositions[3] = {
 			{ 300, 350 },
-			{ 300, 400 },
+			//{ 300, 400 },
 			{ 300, 450 }
 		};
 

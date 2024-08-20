@@ -23,5 +23,6 @@ namespace SWGame {
 		virtual void GatherDraw(std::vector<sf::Drawable*>& retVal);
 
 		World* GetWorld() const;
+		BaseEntity* GetOwner() const;
 	};
 }

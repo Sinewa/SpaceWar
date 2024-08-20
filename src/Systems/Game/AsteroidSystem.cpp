@@ -2,11 +2,13 @@
 
 #include "src/Prefabs/BasePrefab.h"
 #include "src/Core/Utils/Utils.h"
+#include "src/Core/Utils/Transformations.h"
 #include "src/Core/Game.h"
 #include "src/Core/World.h"
 #include "src/Core/Managers/SystemsManager.h"
 
 #include "src/Systems/Game/GameModeSystem.h"
+#include "src/Entities/Base/BaseEntity.h"
 
 namespace SWGame {
 	//-----------------------------------------------------------
@@ -37,14 +39,22 @@ namespace SWGame {
 		if (m_gmSys)
 			level = m_gmSys->GetCurrentLevel();
 
-		if (m_aAsteroids.size() >= (m_gmSys ? level.m_asteroidMax : m_iMaxNumberOfAsteroids))
+		if (m_aAsteroids.size() >= (m_gmSys ? level.m_asteroidMaxNum : m_iMaxNumberOfAsteroids))
 			return;
 		if (m_fDelayTimer < m_fDelay)
 			return;
-
 		VecF pos(Random::GetRandomInt()%200-100, Random::GetRandomInt()%200-100);
+		VecF movementVec(Random::GetRandomInt() % 200 - 100, Random::GetRandomInt() % 200 - 100);
+		if (pos.x < 0)
+			pos.x += 800;
+		if (pos.y < 0)
+			pos.y += 800;
+		if (m_ship) {
+			if ((pos - m_ship->GetTranslation()).Length() < m_exclusionZone)
+				return;
+		}
 
-		auto asteroid = SWPrefabs::CreateAsteroid(GetWorld(), pos, Random::GetRandomFloat01(), pos, level.m_asteroidSpeed + Random::GetRandomFloat01() * 30.f + level.m_asteroidSpeed);
+		auto asteroid = SWPrefabs::CreateAsteroid(GetWorld(), pos, Random::GetRandomFloat01(), movementVec, level.m_asteroidSpeed + Random::GetRandomFloat01() * 30.f + level.m_asteroidSpeed);
 		asteroid->SetSize(level.m_asteroidMaxSize);
 		Register(asteroid);
 		GetWorld()->AddEntity(asteroid);
@@ -60,6 +70,10 @@ namespace SWGame {
 				m_aAsteroids.FastErase(i);
 			}
 		}
+	}
+	//-----------------------------------------------------------
+	void AsteroidSystem::RegisterShip(BaseEntity* ship) {
+		m_ship = ship;
 	}
 	//-----------------------------------------------------------
 }

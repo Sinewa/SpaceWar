@@ -6,6 +6,7 @@
 #include "src/Systems/Physics/PhysicsSystem.h"
 #include "src/Systems/Game/AsteroidSystem.h"
 #include "src/Systems/Game/GameModeSystem.h"
+#include "src/Systems/UI/TextSystem.h"
 
 #include "src/Core/Managers/EntityManager.h"
 
@@ -15,6 +16,7 @@ namespace SWGame {
 		World::OnInit();
 
 		AddAndInitSystem(new PhysicsSystem());
+		AddAndInitSystem(new TextSystem());
 		AddAndInitSystem(new GameModeSystem());
 		AddAndInitSystem(new AsteroidSystem(40));
 
@@ -28,7 +30,8 @@ namespace SWGame {
 
 		auto asterSys = m_SystemManager->FindSystem<AsteroidSystem>();
 		asterSys->ReInit();
-		Load();
+
+		AddEntity(SWPrefabs::CreateShip(this, { 400, 400 }, 0.f));
 	}
 	//-----------------------------------------------------------
 	void GameWorld::DeInit() {
@@ -38,7 +41,6 @@ namespace SWGame {
 	void GameWorld::Load() {
 		World::Load();
 
-		AddEntity(SWPrefabs::CreateShip(this, { 400, 400 }, 0.f));
 	}
 	//-----------------------------------------------------------
 

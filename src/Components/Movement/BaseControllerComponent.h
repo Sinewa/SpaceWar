@@ -7,7 +7,7 @@ namespace SWGame {
 	class BaseControllerComponent : public Component {
 	protected:
 		float m_fSpeed = 200.f;
-		float m_fRotationSpeed = 180.f;
+		float m_fRotationSpeed = 360.f;
 	public:
 		void SetSpeed(float speed);
 		void SetRotationSpeed(float speed);
